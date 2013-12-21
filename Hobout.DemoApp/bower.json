@@ -1,0 +1,21 @@
+{
+  "name": "Hobout.DemoApp",
+  "version": "0.0.0",
+  "authors": [
+    "Hobout LLC"
+  ],
+  "description": "DemoApp for testng API",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.6",
+    "bootstrap": "~3.0.3"
+  }
+}
