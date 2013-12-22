@@ -1,24 +1,17 @@
-var restify = require('restify');
-
-var server = restify.createServer();
+var Application = require('./src/application');
 
 function hello(req, res, next) {
     res.send('hello: ' + req.params.name);
     return next();
 }
 
+var application = new Application(8080);
+
 var PATH = '/login/:name';
-server.get({path: PATH}, hello);
+application.get({path: PATH}, hello);
 
-server.get(/\/bower_components\/?.*/, restify.serveStatic({
-    directory: './hobout.demoapp/bower_components'
-}));
+application.handleStatic(/\/bower_components\/?.*/,
+    {directory: './hobout.demoapp/bower_components'});
 
-server.get('/.*', restify.serveStatic({
-    directory: './hobout.demoapp',
-    default: 'index.html'
-}));
-
-
-
-server.listen(8080);
+application.handleStatic('/.*', {directory: './hobout.demoapp', default: 'index.html'});
+application.run();

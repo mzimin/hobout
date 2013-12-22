@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha -R list"
   },
   "author": "Hobout LLC",
   "license": "BSD-2-Clause",
@@ -14,6 +14,7 @@
     "passport": "~0.1.17"
   },
   "devDependencies": {
-    "mocha": "~1.16.1"
+    "mocha": "~1.16.1",
+    "sinon": "~1.7.3"
   }
 }
