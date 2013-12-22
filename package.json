@@ -4,8 +4,7 @@
   "description": "",
   "main": "hobout.API/index.js",
   "scripts": {
-    "test": "mocha",
-    "postinstall": "echo postinstall time; cd /hobout.api; npm install"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
