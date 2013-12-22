@@ -68,7 +68,6 @@ describe('application', function(){
             assert(spy.calledWith('/test', callback));
             assert(spy.calledOnce);
 
-
         });
 
         it('should correctly call handleStatic method', function(){

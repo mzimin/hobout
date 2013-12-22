@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f89f67d-fc7f-49df-888d-23137e72e1cb" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Hobout.API/src/application.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Hobout.API/test/src/applicationTest.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Hobout.API/src/models/application.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Hobout.API/src/service/authService.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Hobout.API/src/models/message.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Hobout.API/src/models/place.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Hobout.API/src/models/user.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Hobout.API/src/application.js" afterPath="$PROJECT_DIR$/Hobout.API/src/application.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Hobout.API/test/src/applicationTest.js" afterPath="$PROJECT_DIR$/Hobout.API/test/src/applicationTest.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Hobout.API/index.js" afterPath="$PROJECT_DIR$/Hobout.API/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Hobout.API/package.json" afterPath="$PROJECT_DIR$/Hobout.API/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -29,10 +34,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Hobout.API/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="14" selection-start="466" selection-end="466" vertical-scroll-proportion="-8.84" vertical-offset="51" max-vertical-offset="374">
+            <state line="14" column="25" selection-start="545" selection-end="545" vertical-scroll-proportion="0.5288889" vertical-offset="0" max-vertical-offset="595">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="authService.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Hobout.API/src/service/authService.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="46" selection-start="334" selection-end="348" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
               <folding />
             </state>
           </provider>
@@ -41,74 +55,43 @@
       <file leaf-file-name="application.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Hobout.API/src/application.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="4" selection-start="531" selection-end="531" vertical-scroll-proportion="0.0" vertical-offset="466" max-vertical-offset="935">
+            <state line="5" column="43" selection-start="149" selection-end="149" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1071">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="applicationTest.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Hobout.API/test/src/applicationTest.js">
+      <file leaf-file-name="req-res.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Hobout.API/node_modules/sinon/node_modules/buster-format/node_modules/buster-core/vendor/buster-util/lib/buster-util/req-res.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="94" column="41" selection-start="2722" selection-end="2722" vertical-scroll-proportion="3.6820276" vertical-offset="0" max-vertical-offset="1802">
+            <state line="97" column="0" selection-start="2493" selection-end="2493" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1904">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="package.json" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Hobout.API/package.json">
+      <file leaf-file-name="response.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Hobout.API/node_modules/restify/lib/response.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="4" selection-start="323" selection-end="323" vertical-scroll-proportion="-6.3461537" vertical-offset="107" max-vertical-offset="442">
-              <folding>
-                <marker date="1387718535855" expanded="true" signature="26:370" placeholder="{&quot;name&quot;: &quot;Hobout.API&quot;...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="events.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.WebStorm7/system/extLibs/nodejs-v0.11.7-src/core-modules-sources/lib/events.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="0" selection-start="2983" selection-end="2983" vertical-scroll-proportion="0.0" vertical-offset="1343" max-vertical-offset="5287">
+            <state line="107" column="34" selection-start="3081" selection-end="3081" vertical-scroll-proportion="0.0" vertical-offset="1675" max-vertical-offset="4777">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="static.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Hobout.API/node_modules/restify/lib/plugins/static.js">
+      <file leaf-file-name="server.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Hobout.API/node_modules/restify/lib/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="17" selection-start="2631" selection-end="2631" vertical-scroll-proportion="0.0" vertical-offset="4" max-vertical-offset="2397">
-              <folding>
-                <element signature="n#!!block;n#serveFileFromStats#0;n#!!block;n#serveStatic#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="request.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Hobout.API/node_modules/restify/lib/request.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="166" column="0" selection-start="4323" selection-end="4323" vertical-scroll-proportion="0.0" vertical-offset="2700" max-vertical-offset="5525">
+            <state line="510" column="32" selection-start="15316" selection-end="15316" vertical-scroll-proportion="0.0" vertical-offset="8526" max-vertical-offset="13668">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Hobout.DemoApp/index.html">
+      <file leaf-file-name="application.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Hobout.API/src/models/application.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="6" selection-start="40" selection-end="40" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1445">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="package.json" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="19" selection-start="132" selection-end="132" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="357">
+            <state line="3" column="3" selection-start="78" selection-end="78" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
               <folding />
             </state>
           </provider>
@@ -132,20 +115,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Hobout.API/.gitignore" />
-        <option value="$PROJECT_DIR$/Hobout.DemoApp/.gitignore" />
-        <option value="$PROJECT_DIR$/Hobout.DemoApp/bower.json" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/Hobout.DemoApp/index.html" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/Hobout.API/index.js" />
         <option value="$PROJECT_DIR$/Hobout.API/tests/src/applicationTest.js" />
-        <option value="$PROJECT_DIR$/Hobout.API/package.json" />
         <option value="$PROJECT_DIR$/Hobout.API/tests/test.js" />
-        <option value="$PROJECT_DIR$/Hobout.API/src/application.js" />
         <option value="$PROJECT_DIR$/Hobout.API/test/src/applicationTest.js" />
+        <option value="$PROJECT_DIR$/Hobout.API/src/services/DataService.js" />
+        <option value="$PROJECT_DIR$/Hobout.API/src/models/application.js" />
+        <option value="$PROJECT_DIR$/Hobout.API/src/models/message.js" />
+        <option value="$PROJECT_DIR$/Hobout.API/src/models/place.js" />
+        <option value="$PROJECT_DIR$/Hobout.API/src/models/user.js" />
+        <option value="$PROJECT_DIR$/Hobout.API/service/authService.js" />
+        <option value="$PROJECT_DIR$/Hobout.API/package.json" />
+        <option value="$PROJECT_DIR$/Hobout.API/src/service/authService.js" />
+        <option value="$PROJECT_DIR$/Hobout.API/src/application.js" />
+        <option value="$PROJECT_DIR$/Hobout.API/index.js" />
       </list>
     </option>
   </component>
@@ -213,6 +198,42 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hobout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hobout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hobout.API" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hobout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hobout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hobout.API" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -234,6 +255,7 @@
       <recent name="C:\git\hobout\hobout\Hobout.API" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\git\hobout\Hobout.API\src" />
       <recent name="C:\git\hobout\Hobout.DemoApp" />
       <recent name="C:\git\hobout" />
       <recent name="C:\git\hobout\Hobout.API\public" />
@@ -317,18 +339,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1168" height="840" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32896653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.47153285" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3051095" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329927" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24977857" sideWeight="0.36058393" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4614265" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24977857" sideWeight="0.6948905" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46131387" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32846716" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32846716" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -351,130 +373,111 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Hobout.API/node_modules/restify/lib/plugins/static.js</url>
-          <line>33</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Hobout.API/node_modules/restify/lib/plugins/static.js</url>
-          <line>110</line>
-          <option name="timeStamp" value="5" />
+          <url>file://$PROJECT_DIR$/Hobout.API/src/service/authService.js</url>
+          <line>14</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="7" />
+      <option name="time" value="9" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Hobout.DemoApp/.gitignore">
+    <entry file="file://$PROJECT_DIR$/Hobout.API/test/src/applicationTest.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="84" selection-end="84" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="442">
+        <state line="70" column="0" selection-start="1944" selection-end="1944" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1785">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Hobout.API/.gitignore">
+    <entry file="file://$PROJECT_DIR$/Hobout.API/src/models/message.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="103" selection-end="120" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="442">
+        <state line="3" column="3" selection-start="82" selection-end="82" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Hobout.DemoApp/.gitignore">
+    <entry file="file://$PROJECT_DIR$/Hobout.API/src/models/place.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="84" selection-end="84" vertical-scroll-proportion="0.0" vertical-offset="182" max-vertical-offset="442">
+        <state line="3" column="3" selection-start="80" selection-end="80" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/Hobout.API/src/models/user.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="5" selection-start="125" selection-end="125" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
+        <state line="7" column="24" selection-start="161" selection-end="161" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Hobout.DemoApp/bower.json">
+    <entry file="file://$PROJECT_DIR$/Hobout.API/node_modules/restify/lib/plugins/static.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="17" selection-start="308" selection-end="308" vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="459" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hobout.API/node_modules/restify/node_modules/assert-plus/assert.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="0" selection-start="2639" selection-end="2639" vertical-scroll-proportion="0.0" vertical-offset="1724" max-vertical-offset="3434">
+        <state line="10" column="0" selection-start="264" selection-end="264" vertical-scroll-proportion="0.5279503" vertical-offset="0" max-vertical-offset="2992">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.WebStorm7/system/extLibs/nodejs-v0.11.7-src/core-modules-sources/lib/events.js">
+    <entry file="file://$PROJECT_DIR$/Hobout.API/src/models/application.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="0" selection-start="2983" selection-end="2983" vertical-scroll-proportion="0.0" vertical-offset="4088" max-vertical-offset="4964">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hobout.API/node_modules/restify/lib/request.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="166" column="0" selection-start="4323" selection-end="4323" vertical-scroll-proportion="0.0" vertical-offset="2700" max-vertical-offset="5525">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hobout.DemoApp/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="6" selection-start="40" selection-end="40" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1445">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="19" selection-start="132" selection-end="132" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="357">
+        <state line="3" column="3" selection-start="78" selection-end="78" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Hobout.API/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="4" selection-start="323" selection-end="323" vertical-scroll-proportion="-6.3461537" vertical-offset="107" max-vertical-offset="442">
-          <folding>
-            <marker date="1387718535855" expanded="true" signature="26:370" placeholder="{&quot;name&quot;: &quot;Hobout.API&quot;...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hobout.API/node_modules/restify/lib/plugins/static.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="17" selection-start="2631" selection-end="2631" vertical-scroll-proportion="0.0" vertical-offset="4" max-vertical-offset="2397">
-          <folding>
-            <element signature="n#!!block;n#serveFileFromStats#0;n#!!block;n#serveStatic#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hobout.API/node_modules/restify/lib/plugins/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="34" selection-start="212" selection-end="212" vertical-scroll-proportion="0.35416666" vertical-offset="0" max-vertical-offset="612">
+        <state line="14" column="33" selection-start="325" selection-end="325" vertical-scroll-proportion="0.51960784" vertical-offset="26" max-vertical-offset="459">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Hobout.API/index.js">
+    <entry file="file://$PROJECT_DIR$/Hobout.API/node_modules/restify/lib/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="14" selection-start="466" selection-end="466" vertical-scroll-proportion="-8.84" vertical-offset="51" max-vertical-offset="374">
+        <state line="510" column="32" selection-start="15316" selection-end="15316" vertical-scroll-proportion="0.0" vertical-offset="8526" max-vertical-offset="13668">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hobout.API/node_modules/restify/lib/response.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="107" column="34" selection-start="3081" selection-end="3081" vertical-scroll-proportion="0.0" vertical-offset="1675" max-vertical-offset="4777">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hobout.API/node_modules/restify/lib/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="122" column="11" selection-start="3525" selection-end="3528" vertical-scroll-proportion="0.33251834" vertical-offset="1938" max-vertical-offset="2822">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hobout.API/node_modules/sinon/node_modules/buster-format/node_modules/buster-core/vendor/buster-util/lib/buster-util/req-res.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="97" column="0" selection-start="2493" selection-end="2493" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1904">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Hobout.API/src/application.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="4" selection-start="531" selection-end="531" vertical-scroll-proportion="0.0" vertical-offset="466" max-vertical-offset="935">
+        <state line="5" column="43" selection-start="149" selection-end="149" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1071">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Hobout.API/test/src/applicationTest.js">
+    <entry file="file://$PROJECT_DIR$/Hobout.API/src/service/authService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="41" selection-start="2722" selection-end="2722" vertical-scroll-proportion="3.6820276" vertical-offset="0" max-vertical-offset="1802">
+        <state line="10" column="46" selection-start="334" selection-end="348" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="765">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hobout.API/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="25" selection-start="545" selection-end="545" vertical-scroll-proportion="0.5288889" vertical-offset="0" max-vertical-offset="595">
           <folding />
         </state>
       </provider>
