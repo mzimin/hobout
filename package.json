@@ -5,7 +5,7 @@
   "main": "hobout.API/index.js",
   "scripts": {
     "test": "mocha",
-    "postinstall": "echo postinstall time; cd hobout.api; npm install"
+    "postinstall": "echo postinstall time; cd /hobout.api; npm install"
   },
   "repository": {
     "type": "git",
