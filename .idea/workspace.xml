@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f89f67d-fc7f-49df-888d-23137e72e1cb" name="Default" comment="" />
+    <list default="true" id="5f89f67d-fc7f-49df-888d-23137e72e1cb" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+    </list>
     <ignored path="hobout.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,15 +25,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="bower.json" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Hobout.DemoApp/bower.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="17" selection-start="308" selection-end="308" vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="459">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
@@ -86,10 +79,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Hobout.DemoApp/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="6" selection-start="40" selection-end="40" vertical-scroll-proportion="0.16398714" vertical-offset="0" max-vertical-offset="1445">
+            <state line="3" column="6" selection-start="40" selection-end="40" vertical-scroll-proportion="-1.0" vertical-offset="0" max-vertical-offset="1445">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="4" selection-start="290" selection-end="290" vertical-scroll-proportion="0.60714287" vertical-offset="0" max-vertical-offset="374">
               <folding />
             </state>
           </provider>
@@ -140,6 +142,7 @@
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/Hobout.API/index.js" />
         <option value="$PROJECT_DIR$/Hobout.DemoApp/index.html" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -302,10 +305,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1168" height="840" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32896653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40465793" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40465793" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24977857" sideWeight="0.59534204" order="0" side_tool="false" content_ui="combo" />
@@ -442,7 +445,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Hobout.DemoApp/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="6" selection-start="40" selection-end="40" vertical-scroll-proportion="0.16398714" vertical-offset="0" max-vertical-offset="1445">
+        <state line="3" column="6" selection-start="40" selection-end="40" vertical-scroll-proportion="-1.0" vertical-offset="0" max-vertical-offset="1445">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="4" selection-start="290" selection-end="290" vertical-scroll-proportion="0.60714287" vertical-offset="0" max-vertical-offset="374">
           <folding />
         </state>
       </provider>
