@@ -7,23 +7,29 @@ var application = new Application(process.env.PORT);
 var authService = new AuthService();
 application.use(authService.init());
 
-
-var fb_login_handler    = authService.authenticate('facebook', { session: false })
-var fb_callback_handler = authService.authenticate('facebook', { session: false })
-var fb_callback_handler2 = function(req, res) {
-    console.log('we b logged in!')
-    console.dir(req.user)
-    // be sure to send a response
-    res.send('Welcome ' + req.user.displayName);
-}
-
-application.get('/auth/facebook',  fb_callback_handler)
-application.get('/auth/facebook/callback', [fb_callback_handler, fb_callback_handler2]);
-
+application.get('/auth/facebook',  authService.authenticate('facebook', { session: false, scope: 'email' }));
+application.get('/auth/facebook/callback', [authService.authenticate('facebook', { session: false }), loginSuccess]);
+application.get('/api/data', [authService.authenticate('bearer', {session: false}), testSecretData]);
 
 application.handleStatic(/\/bower_components\/?.*/,{directory: './hobout.demoapp/bower_components'});
+application.handleStatic(/\/js\/?.*/, {directory: './hobout.demoapp/js'});
 application.handleStatic('/.*', {directory: './hobout.demoapp', default: 'index.html'});
 
-application.run();
 
-console.log('App started on port ' + application.port)
+application.run();
+mongoose.connect('mongodb://localhost/hobout');
+
+console.log('App started on port ' + application.port);
+
+
+function loginSuccess(req, res){
+
+    res.send({msg:"Login succesfull", data:req.user});
+
+}
+
+function testSecretData(req, res){
+
+    res.send({data:"Congrats, you able to see top secret data ever!"});
+
+}

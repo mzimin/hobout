@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="hobout" lang="en">
 <head>
     <meta charset="utf-8">
     <title>Hobout</title>
@@ -52,28 +52,31 @@
 
 </head>
 
-<body>
+<body ng-controller="loginCtrl">
 
 <div class="container">
 
-    <form action="/login" class="form-signin">
+    <form class="form-signin" data-ng-submit="login(user)">
+
         <h2 class="form-signin-heading">Please sign in</h2>
-        <input type="text" class="input-block-level" placeholder="Email address">
-        <input type="password" class="input-block-level" placeholder="Password">
+        <input type="text" class="input-block-level" ng-model="user.login" placeholder="Email address">
+        <input type="password" class="input-block-level" ng-model="user.password" placeholder="Password">
         <label class="checkbox">
             <input type="checkbox" value="remember-me"> Remember me
         </label>
         <button class="btn btn-large btn-primary" type="submit">Sign in</button>
         <p>If not registered yet</p>
         <button class="btn btn-large btn-primary" type="submit">Sign Up</button>
+
+        <a href="#" ng-click="loginFb()">Login with Facebook</a>
+
       </form>
 
 </div> <!-- /container -->
-
-<!-- Le javascript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/js/app.js"></script>
 
 </body>
 </html>
