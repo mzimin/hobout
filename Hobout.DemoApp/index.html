@@ -52,27 +52,42 @@
 
 </head>
 
-<body ng-controller="loginCtrl">
+<body>
+<div ng-controller="demoCtrl" style="width:1000px; height: 800px;">
+    <div class="container" ng-show="!loginSuccess">
 
-<div class="container">
+        <form class="form-signin" ng-submit="login(user)">
 
-    <form class="form-signin" data-ng-submit="login(user)">
+            <h2 class="form-signin-heading">Please sign in</h2>
+            <input type="text" class="input-block-level" ng-model="user.login" placeholder="Email address">
+            <input type="password" class="input-block-level" ng-model="user.password" placeholder="Password">
+            <label class="checkbox">
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+            <button class="btn btn-large btn-primary" type="submit">Sign in</button>
+            <p>If not registered yet</p>
+            <button class="btn btn-large btn-primary" type="submit">Sign Up</button>
 
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <input type="text" class="input-block-level" ng-model="user.login" placeholder="Email address">
-        <input type="password" class="input-block-level" ng-model="user.password" placeholder="Password">
-        <label class="checkbox">
-            <input type="checkbox" value="remember-me"> Remember me
-        </label>
-        <button class="btn btn-large btn-primary" type="submit">Sign in</button>
-        <p>If not registered yet</p>
-        <button class="btn btn-large btn-primary" type="submit">Sign Up</button>
+            <a href="#" ng-click="loginFb()">Login with Facebook</a>
 
-        <a href="#" ng-click="loginFb()">Login with Facebook</a>
+          </form>
 
-      </form>
+    </div> <!-- /container -->
+    <div ng-show="loginSuccess" class="container" >
+        <label>
+        <textarea style="width: 50%;height: 40%">{{data}}</textarea></label>
+        <span>
+            <p>to request some user data type relative url in the input below according the pattern <b>/users?limit=5</b></p>
+            <form data-ng-submit="requestUserData(url)">
+                <input type="text" ng-model="(url)"/>
+                <input type="submit"/>
+            </form>
+        </span>
+    </div>
+</div>
 
-</div> <!-- /container -->
+
+
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="/bower_components/angular/angular.js"></script>

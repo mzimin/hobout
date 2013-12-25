@@ -24,12 +24,14 @@ console.log('App started on port ' + application.port);
 
 function loginSuccess(req, res){
 
-    res.send({msg:"Login succesfull", data:req.user});
+    var url = '/' + '#/?code='+req.query.code + '&login=true';
+    res.header('Location', url);
+    res.send(302);
 
-}
+};
 
 function testSecretData(req, res){
 
     res.send({data:"Congrats, you able to see top secret data ever!"});
 
-}
+};
