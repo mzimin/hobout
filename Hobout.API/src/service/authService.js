@@ -1,5 +1,3 @@
-
-
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 var BearerStrategy = require('passport-http-bearer').Strategy;
@@ -20,21 +18,29 @@ passport.use(
 
         console.log('accessToken='+accessToken+' facebookId='+profile.id)
         UserModel.findOne({userID : profile.id}, function(err, oldUser){
+            var saveCallback = function(error, user){
+                if(err){
+                    throw err;
+                }
+                done(null, user);
+            }
             if(oldUser){
-                done(null,oldUser);
+                if(oldUser.token !== accessToken){
+                    oldUser.token = accessToken;
+                    oldUser.save(saveCallback);
+                }else{
+                    done(null,oldUser);
+                }
             }else{
                 var newUser = new UserModel({
                     userID : profile.id ,
                     email : profile.emails[0].value,
                     name : profile.displayName,
                     token: accessToken
-                }).save(function(err,newUser){
-                        if(err) throw err;
-                        done(null, newUser);
-                    });
+                }).save(saveCallback);
             }
         });
-
+        profile.token = accessToken;
         return done(null, profile);
 
     })
