@@ -7,7 +7,7 @@ var application = new Application(process.env.PORT);
 var authService = new AuthService();
 application.use(authService.init());
 
-application.get('/auth/facebook',  authService.authenticate('facebook', { session: false, scope: 'email' }));
+application.get('/auth/facebook',  authService.authenticate('facebook', { session: false, scope: 'email', display: 'popup' }));
 application.get('/auth/facebook/callback', [authService.authenticate('facebook', { session: false }), loginSuccess]);
 application.get('/users/:name', [authService.authenticate('bearer', {session: false}), testSecretData]);
 
@@ -26,9 +26,10 @@ console.log('App started on port ' + application.port);
 
 function loginSuccess(req, res){
 
-    var url = '/' + '#/?code='+req.user.token + '&login=true';
-    res.header('Location', url);
-    res.send(302);
+    res.write(
+        "<script type='text/javascript'>(function(){if(opener && '' != opener.location) {opener.assignHoboutToken('"+ req.user.token +
+            "');}window.close();})();</script> ");
+    res.next();
 
 };
 
@@ -38,3 +39,6 @@ function testSecretData(req, res, next){
     return next();
 
 };
+
+
+

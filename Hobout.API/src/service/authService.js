@@ -8,6 +8,7 @@ var APP_SECRET = process.env.APP_SECRET || 'e9bd1dd07c6d702c8c4f0bc6bdb33681';
 var FB_CALLBACK = process.env.FB_CALLBACK || 'http://local.hobout.com/auth/facebook/callback';
 
 passport.use(
+
     new FacebookStrategy({
         clientID: APP_ID,
         clientSecret: APP_SECRET,
@@ -16,7 +17,6 @@ passport.use(
 
     function(accessToken, refreshToken, profile, done) {
 
-        console.log('accessToken='+accessToken+' facebookId='+profile.id)
         UserModel.findOne({userID : profile.id}, function(err, oldUser){
             var saveCallback = function(error, user){
                 if(err){
@@ -44,7 +44,9 @@ passport.use(
         return done(null, profile);
 
     })
+
 );
+
 
 passport.use(new BearerStrategy(
     function(token, done) {
@@ -68,12 +70,20 @@ AuthService.prototype = {
     authenticate: function(type, param, callback){
 
         return this.authManager.authenticate(type, param, callback);
+
     },
 
     init: function(){
 
         return this.authManager.initialize();
+    },
+
+    generateToken: function(login, password){
+
+
+
     }
+
 
 };
 
