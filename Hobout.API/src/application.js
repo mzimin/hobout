@@ -4,6 +4,7 @@ function Application(port){
 
     this.server = restify.createServer();
     this.server.use(restify.queryParser());
+    this.server.use(restify.bodyParser())
 
     this.port = port || 80;
 

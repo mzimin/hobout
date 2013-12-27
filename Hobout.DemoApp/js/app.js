@@ -7,14 +7,10 @@ application.controller('demoCtrl', function($scope, $location, $http) {
     $scope.page = 'signin';
 
     $scope.signup = function(user){
-        $http.get('/signup',{data:user}).success(function(data){
+        $http.post('/signup', user).success(function(data){
             $scope.page="data";
             $scope.token = data.token;
         });
-    };
-
-    $scope.signup = function(user){
-        $scope.page = 'signup';
     };
 
     $scope.setPage = function(page){
@@ -51,7 +47,31 @@ application.controller('demoCtrl', function($scope, $location, $http) {
         $http.get(url)
             .success(function(data){$scope.data = data.data})
             .error(function(){console.log("Error occurred =("); console.dir(arguments)});
+
+    }
+
+    initFromLS($scope);
+    window.onunload = function(){
+        saveToLS($scope);
     }
 });
+
+
+function initFromLS($scope){
+
+    var data = JSON.parse(localStorage.getItem('hobout_data'));
+    if(data){
+        $scope.page = data.page;
+        $scope.token = data.token;
+    }
+
+};
+
+function saveToLS($scope){
+
+    var data = {token: $scope.token, page: $scope.page};
+    localStorage.setItem('hobout_data', JSON.stringify(data));
+
+};
 
 
