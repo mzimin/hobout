@@ -1,5 +1,6 @@
 var AppModel = require('../models/application');
 var UserModel = require('../models/user');
+var logger = require('../infrastructure/logger')(module);
 
 module.exports = function(){
 
@@ -14,7 +15,7 @@ module.exports = function(){
                 password: '12345',
                 email:'hoboutDev@gmail.com'}).save(function(err, user){
                     if(err){
-                        console.log(err);
+                        logger.error(err);
                         return;
                     }
 
@@ -29,7 +30,7 @@ module.exports = function(){
                                 userId: user.id})
                                 .save(function(err){
                                     if(err){
-                                        console.log(err);
+                                        logger.error(err);
                                     }
                                 });
                         };

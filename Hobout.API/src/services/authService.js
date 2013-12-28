@@ -118,14 +118,6 @@ server.exchange(oauth2orize.exchange.clientCredentials(function(client, scope, d
 
 }));
 
-
-var login = {ensureLoggedIn: function(){
-    console.dir(arguments);
-    return function(req, res, next){
-        return next();
-    }
-}};
-
 passport.use(
     new FacebookStrategy({
         clientID: APP_ID,
