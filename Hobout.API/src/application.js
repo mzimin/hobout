@@ -1,4 +1,8 @@
 var restify = require('restify');
+var mongoose = require('mongoose');
+var initscript = require('../src/infrastructure/initScript');
+
+
 
 function Application(port){
 
@@ -37,7 +41,10 @@ Application.prototype = {
 
     run: function(){
 
+        mongoose.connect('mongodb://localhost/hobout');
+        initscript();
         return this.server.listen(this.port);
+
 
     },
 
@@ -55,4 +62,6 @@ Application.prototype = {
 };
 
 module.exports = Application;
+
+
 

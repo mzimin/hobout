@@ -1,10 +1,9 @@
 var mongoose = require('mongoose');
 
 var AppSchema = new mongoose.Schema({
-
-    clientId: String,
-    cecret: String
-
+    secret: String,
+    userID: String,
+    name: String
 });
 
-var AppModel = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('Application', AppSchema);

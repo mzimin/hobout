@@ -1,7 +1,7 @@
 var Application = require('./src/application');
 var AuthService = require('./src/service/auth/authService');
-var mongoose = require('mongoose');
 var UserModel = require('./src/models/user');
+var authActions = require('./src/actions/auth');
 
 var application = new Application(process.env.PORT);
 
@@ -12,7 +12,7 @@ application.use(authService.init());
 application.get('/auth/facebook',  authService.authenticate('facebook', { session: false, scope: 'email', display: 'popup' }));
 application.get('/auth/facebook/callback', [authService.authenticate('facebook', { session: false }), loginSuccess]);
 application.get('/users/:name', [authService.authenticate('bearer', {session: false}), testSecretData]);
-application.post('/signup', signup);
+application.post('/signup', authActions.signupUser);
 
 
 
@@ -22,9 +22,35 @@ application.handleStatic('/.*', {directory: './hobout.demoapp', default: 'index.
 
 
 application.run();
-mongoose.connect('mongodb://localhost/hobout');
 
 console.log('App started on port ' + application.port);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function loginSuccess(req, res){
@@ -42,34 +68,6 @@ function testSecretData(req, res, next){
     return next();
 
 };
-
-function signup(req, res, next){
-
-    var userData = req.body;
-
-    var saveCallback = function(error, user){
-
-        if(error){
-            throw error;
-        }
-
-        res.send({token: user.token});
-        return next();
-
-    }
-
-    UserModel.findOne({ email: userData.email }, function (err, user) {
-        if (err) { return done(err); }
-        if (!user) {
-            new UserModel({
-                name: userData.login,
-                password: userData.password,
-                token: authService.generateToken(userData.login, userData.password)})
-                .save(saveCallback)
-        }
-    });
-
-}
 
 
 
