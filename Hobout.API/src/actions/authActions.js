@@ -44,7 +44,8 @@ module.exports = {
     registerApplication: function(req, res, next){
 
         var appData = {
-            name: req.query.appName,
+            name: req.body.appName,
+            redirectURI: req.body.redirectURI,
             userId: req.user.id,
             secret: __.randomKey(32)
         };
@@ -55,10 +56,11 @@ module.exports = {
                 throw error;
             }
             res.send({clientId: element.id, secret: element.secret});
+            return next();
 
         }
 
-        _saveToDB(AppModel, {name: appData.name}, appData, saveCallback);
+        _saveToDB(AppModel, {name: appData.name, userId: appData.userId}, appData, saveCallback);
 
     }
 

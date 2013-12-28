@@ -2,13 +2,11 @@ var restify = require('restify');
 var mongoose = require('mongoose');
 var initscript = require('../src/infrastructure/initScript');
 
-
-
 function Application(port){
 
     this.server = restify.createServer();
     this.server.use(restify.queryParser());
-    this.server.use(restify.bodyParser())
+    this.server.use(restify.bodyParser());
 
     this.port = port || 80;
 
@@ -45,7 +43,6 @@ Application.prototype = {
         initscript();
         return this.server.listen(this.port);
 
-
     },
 
     handleStatic: function(routeRegExp, params){
@@ -62,6 +59,12 @@ Application.prototype = {
 };
 
 module.exports = Application;
+
+
+//TODO:
+// 1) implement logginng
+// 2) log attemps to connect without tokens, or with wrong token
+// 3) implement log parser
 
 
 

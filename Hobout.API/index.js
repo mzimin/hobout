@@ -1,20 +1,19 @@
 var Application = require('./src/application');
-var AuthService = require('./src/service/auth/authService');
-var UserModel = require('./src/models/user');
-var authActions = require('./src/actions/auth');
+var AuthService = require('./src/service/authService');
+var authActions = require('./src/actions/authActions');
 
 var application = new Application(process.env.PORT);
-
-var authService = new AuthService();
-application.use(authService.init());
+application.use(AuthService.initialize());
 
 
-application.get('/auth/facebook',  authService.authenticate('facebook', { session: false, scope: 'email', display: 'popup' }));
-application.get('/auth/facebook/callback', [authService.authenticate('facebook', { session: false }), loginSuccess]);
-application.get('/users/:name', [authService.authenticate('bearer', {session: false}), testSecretData]);
-application.post('/signup', authActions.signupUser);
+application.get('/auth/facebook',  AuthService.authenticate('facebook', { session: false, scope: 'email', display: 'popup' }));
+application.get('/auth/facebook/callback', [AuthService.authenticate('facebook', { session: false }), loginSuccess]);
+application.get('/users/:name', [AuthService.authenticate('bearer', {session: false}), testSecretData]);
+application.post('/users', authActions.signupUser);
 
-
+application.get('/auth', AuthService.authorization);
+application.post('/auth/decision', AuthService.decision);
+application.post('/oauth/token', AuthService.token);
 
 application.handleStatic(/\/bower_components\/?.*/,{directory: './hobout.demoapp/bower_components'});
 application.handleStatic(/\/js\/?.*/, {directory: './hobout.demoapp/js'});
