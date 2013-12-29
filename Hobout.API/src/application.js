@@ -2,11 +2,27 @@ var restify = require('restify');
 var mongoose = require('mongoose');
 var initscript = require('../src/infrastructure/initScript');
 
+// oauth2orize require session support , but restify do not support it, so adding session stud for integration
+var sessionStub = function(){
+
+    function setSession(req, res, next) {
+
+        var session = {};
+        req._session = req.session = session;
+        return (next());
+
+    }
+
+    return (setSession);
+
+}
+
 function Application(port){
 
     this.server = restify.createServer();
     this.server.use(restify.queryParser());
     this.server.use(restify.bodyParser());
+    this.server.use(sessionStub());
 
     this.port = port || 80;
 

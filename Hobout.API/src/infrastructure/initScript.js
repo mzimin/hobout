@@ -27,6 +27,7 @@ module.exports = function(){
                             new AppModel({
                                 name: 'hoboutClient',
                                 secret: '11111',
+                                redirectURI: 'http://local.hobout.com/auth/callback',
                                 userId: user.id})
                                 .save(function(err){
                                     if(err){

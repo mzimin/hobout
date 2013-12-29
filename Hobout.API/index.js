@@ -1,5 +1,5 @@
 var Application = require('./src/application');
-var AuthService = require('./src/service/authService');
+var AuthService = require('./src/services/authService');
 var authActions = require('./src/actions/authActions');
 
 var application = new Application(process.env.PORT);
@@ -24,38 +24,9 @@ application.run();
 
 console.log('App started on port ' + application.port);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function loginSuccess(req, res){
 
-    res.write(
-        "<script type='text/javascript'>(function(){if(opener && '' != opener.location) {opener.assignHoboutToken('"+ req.user.token +
+    res.write("<script type='text/javascript'>(function(){if(opener && '' != opener.location) {opener.assignHoboutToken('"+ req.user.token +
             "');}window.close();})();</script> ");
     res.next();
 

@@ -1,6 +1,7 @@
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 var BearerStrategy = require('passport-http-bearer').Strategy;
+var LocalStrategy = require('passport-local').Strategy;
 var ClientPasswordStrategy  = require('passport-oauth2-client-password').Strategy;
 var oauth2orize = require('oauth2orize');
 var __ = require('../infrastructure/util');
@@ -14,6 +15,17 @@ var APP_SECRET = process.env.APP_SECRET || 'e9bd1dd07c6d702c8c4f0bc6bdb33681';
 var FB_CALLBACK = process.env.FB_CALLBACK || 'http://local.hobout.com/auth/facebook/callback';
 
 var server = oauth2orize.createServer();
+
+server.serializeClient(function(client, done) {
+    return done(null, client.id);
+});
+
+server.deserializeClient(function(id, done) {
+    AppModel.findOne({_id: id}, function(err, client) {
+        if (err) { return done(err); }
+        return done(null, client);
+    });
+});
 
 server.grant(oauth2orize.grant.authorizationCode(function(client, redirectURI, user, ares, done) {
 
@@ -71,9 +83,11 @@ server.exchange(oauth2orize.exchange.password(function(client, username, passwor
         if(clientapp === null) {
             return done(null, false);
         }
+
         if(clientapp.secret !== client.clientSecret) {
             return done(null, false);
         }
+
         UserModel.findOne({email: username}, function(err, user) {
             if (err) { return done(err); }
             if(user === null) {
@@ -117,6 +131,24 @@ server.exchange(oauth2orize.exchange.clientCredentials(function(client, scope, d
     });
 
 }));
+
+passport.use(new LocalStrategy(
+    { usernameField: 'email',
+      passwordField: 'password' },
+
+    function(username, password, done) {
+        UserModel.findOne({ email: username }, function(err, user) {
+            if (err) { return done(err); }
+            if (!user) {
+                return done(null, false, { message: 'Incorrect username.' });
+            }
+            if (!user.validPassword(password)) {
+                return done(null, false, { message: 'Incorrect password.' });
+            }
+            return done(null, user);
+        });
+    }
+));
 
 passport.use(
     new FacebookStrategy({
@@ -166,10 +198,12 @@ passport.use(new BearerStrategy(
 
 passport.use(new ClientPasswordStrategy(
     function(clientId, clientSecret, done) {
-        ApplicationModel.findOne({ clientId: clientId }, function (err, client) {
+        AppModel.findOne({ clientId: clientId }, function (err, client) {
             if (err) { return done(err); }
             if (!client) { return done(null, false); }
-            if (client.clientSecret != clientSecret) { return done(null, false); }
+            if(clientSecret){
+                if (client.clientSecret != clientSecret) { return done(null, false); }
+            }
             return done(null, client);
         });
     }
@@ -181,21 +215,19 @@ module.exports = passport;
 module.exports.authorization = [
 
     server.authorization(function(clientID, redirectURI, done) {
-        AppModel.findOne({clentId:clientID}, function(err, client) {
+        AppModel.findOne({_id: clientID}, function(err, client) {
             if (err) { return done(err); }
-            if(client.redirectURI !== redirectURI){ return done(new Error("Wrong redirect URL provided"))};
+            if(!client){
+                return done(new Error("Client application with such id do not exist"));
+            }
+            if(client.redirectURI !== redirectURI){
+                return done(new Error("Redirect URL not provided or has incorrect value"));
+            };
             return done(null, client, redirectURI);
         });
     }),
     function(req, res){
-        var html = ['<!doctype html><html><head>',
-            '<meta charset="utf-8"><title>Page Title</title>',
-            '<meta name="description" content="Webpage for xxxx">',
-            '<link rel="stylesheet" href="css/reset/reset.css">',
-            '<p>this is login page stub</p>',
-            '</head><body></body></html>'].join();
-        //res.render('dialog', { transactionID: req.oauth2.transactionID, user: req.user, client: req.oauth2.client });
-        res.write(html);
+        __.renderDialog(req.oauth2.client, res);
     }
 ]
 
@@ -203,9 +235,8 @@ module.exports.decision = [
     server.decision()
 ];
 
-
 module.exports.token = [
-    passport.authenticate(['basic', 'oauth2-client-password'], { session: false }),
+    passport.authenticate(['local', 'oauth2-client-password'], { session: false }),
     server.token(),
     server.errorHandler()
 ];
