@@ -8,12 +8,13 @@ application.use(AuthService.initialize());
 
 application.get('/auth/facebook',  AuthService.authenticate('facebook', { session: false, scope: 'email', display: 'popup' }));
 application.get('/auth/facebook/callback', [AuthService.authenticate('facebook', { session: false }), loginSuccess]);
-application.get('/users/:name', [AuthService.authenticate('bearer', {session: false}), testSecretData]);
-application.post('/users', authActions.signupUser);
-
 application.get('/auth', AuthService.authorization);
 application.post('/auth/decision', AuthService.decision);
-application.post('/oauth/token', AuthService.token);
+application.post('/auth/token', AuthService.token);
+application.post('/auth/mtoken', AuthService.simplifiedToken);
+
+application.get('/users/:name', [AuthService.authenticate('bearer', {session: false}), testSecretData]);
+application.post('/users', authActions.signupUser);
 
 application.handleStatic(/\/bower_components\/?.*/,{directory: './hobout.demoapp/bower_components'});
 application.handleStatic(/\/js\/?.*/, {directory: './hobout.demoapp/js'});

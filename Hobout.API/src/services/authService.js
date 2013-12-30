@@ -1,8 +1,9 @@
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 var BearerStrategy = require('passport-http-bearer').Strategy;
-var LocalStrategy = require('passport-local').Strategy;
-var ClientPasswordStrategy  = require('passport-oauth2-client-password').Strategy;
+var BasicStrategy = require('passport-http').BasicStrategy;
+var ClientPasswordStrategy = require('passport-oauth2-client-password').Strategy;
+var ClientStrategy = require('../infrastructure/clientStrategy');
 var oauth2orize = require('oauth2orize');
 var __ = require('../infrastructure/util');
 var AppModel = require('../models/application');
@@ -75,16 +76,15 @@ server.exchange(oauth2orize.exchange.code(function(client, code, redirectURI, do
     });
 }));
 
-
 server.exchange(oauth2orize.exchange.password(function(client, username, password, scope, done) {
 
-    AppModel.findOne({clientId: client.clientId}, function(err, clientapp) {
+    AppModel.findOne({ _id: client.id }, function(err, clientapp) {
         if (err) { return done(err); }
         if(clientapp === null) {
             return done(null, false);
         }
 
-        if(clientapp.secret !== client.clientSecret) {
+        if(clientapp.secret !== client.secret) {
             return done(null, false);
         }
 
@@ -100,10 +100,10 @@ server.exchange(oauth2orize.exchange.password(function(client, username, passwor
             new TokenModel({
                 token: token,
                 userId: user.id,
-                clientId: client.clientId})
-                .save(function(err, token) {
+                clientId: client.id})
+                .save(function(err, tokenModel) {
                     if (err) { return done(err); }
-                    done(null, token);
+                    done(null, tokenModel.token);
                 });
         });
     });
@@ -112,7 +112,7 @@ server.exchange(oauth2orize.exchange.password(function(client, username, passwor
 
 server.exchange(oauth2orize.exchange.clientCredentials(function(client, scope, done) {
 
-    AppModel.findOne({ clientId: client.clientId}, function(err, clientapp) {
+    AppModel.findOne({ _id : client.id }, function(err, clientapp) {
         if (err) { return done(err); }
         if(clientapp === null) {
             return done(null, false);
@@ -132,22 +132,16 @@ server.exchange(oauth2orize.exchange.clientCredentials(function(client, scope, d
 
 }));
 
-passport.use(new LocalStrategy(
-    { usernameField: 'email',
-      passwordField: 'password' },
 
-    function(username, password, done) {
-        UserModel.findOne({ email: username }, function(err, user) {
-            if (err) { return done(err); }
-            if (!user) {
-                return done(null, false, { message: 'Incorrect username.' });
-            }
-            if (!user.validPassword(password)) {
-                return done(null, false, { message: 'Incorrect password.' });
-            }
-            return done(null, user);
-        });
-    }
+passport.use(new BasicStrategy(function(username, password, done) {
+    AppModel.findOne({ _id: username }, function(err, client) {
+        if (err) { return done(err); }
+        if (!client) { return done(null, false); }
+        if (client.secret != password) { return done(null, false); }
+
+        return done(null, client);
+    });
+}
 ));
 
 passport.use(
@@ -198,16 +192,25 @@ passport.use(new BearerStrategy(
 
 passport.use(new ClientPasswordStrategy(
     function(clientId, clientSecret, done) {
-        AppModel.findOne({ clientId: clientId }, function (err, client) {
+        AppModel.findOne({ _id: clientId }, function (err, client) {
             if (err) { return done(err); }
             if (!client) { return done(null, false); }
-            if(clientSecret){
-                if (client.clientSecret != clientSecret) { return done(null, false); }
-            }
+            if (client.clientSecret != clientSecret) { return done(null, false); }
             return done(null, client);
         });
     }
 ));
+
+passport.use(new ClientStrategy(function(clientId, clientSecret, done) {
+    AppModel.findOne({ _id: clientId }, function (err, client) {
+        if (err) { return done(err); }
+        if (!client) { return done(null, false); }
+        if(clientSecret){
+            if (client.clientSecret != clientSecret) { return done(null, false); }
+        }
+        return done(null, client);
+    });
+}))
 
 
 module.exports = passport;
@@ -236,10 +239,15 @@ module.exports.decision = [
 ];
 
 module.exports.token = [
-    passport.authenticate(['local', 'oauth2-client-password'], { session: false }),
+    passport.authenticate(['basic', 'oauth2-client-password'], { session: false }),
     server.token(),
-    server.errorHandler()
-];
+    server.errorHandler()];
+
+module.exports.simplifiedToken = [
+    passport.authenticate('oauth2-client', {session: false}),
+    server.token(),
+    server.errorHandler()];
+
 
 
 
