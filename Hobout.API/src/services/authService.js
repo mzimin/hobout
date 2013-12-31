@@ -17,18 +17,18 @@ var FB_CALLBACK = process.env.FB_CALLBACK || 'http://local.hobout.com/auth/faceb
 
 var server = oauth2orize.createServer();
 
-server.serializeClient(function(client, done) {
+server.serializeClient(function(client, done){
     return done(null, client.id);
 });
 
-server.deserializeClient(function(id, done) {
+server.deserializeClient(function(id, done){
     AppModel.findOne({_id: id}, function(err, client) {
         if (err) { return done(err); }
         return done(null, client);
     });
 });
 
-server.grant(oauth2orize.grant.authorizationCode(function(client, redirectURI, user, ares, done) {
+server.grant(oauth2orize.grant.authorizationCode(function(client, redirectURI, user, ares, done){
 
     var code = __.randomKey(16);
 
@@ -54,26 +54,27 @@ server.grant(oauth2orize.grant.token(function(client, user, ares, done) {
             if (err) {return done(err);}
             return done(null, token);
         });
-
 }));
 
 server.exchange(oauth2orize.exchange.code(function(client, code, redirectURI, done) {
+
     AuthCodeModel.findOne({code: code}, function(err, authCode) {
         if (err) { return done(err); }
-        if (client.id !== authCode.clientID) { return done(null, false); }
+        if (client.id !== authCode.clientId) { return done(null, false); }
         if (redirectURI !== authCode.redirectURI) { return done(null, false); }
 
         var token = __.randomKey(256);
         new TokenModel({
-            value: token,
+            token: token,
             code: authCode.code,
             userID: authCode.userId,
             clientId: authCode.clientId })
             .save(function(err, token) {
                 if (err) { return done(err); }
-                done(null, token);
+                done(null, token.token);
             });
     });
+
 }));
 
 server.exchange(oauth2orize.exchange.password(function(client, username, password, scope, done) {
@@ -126,7 +127,7 @@ server.exchange(oauth2orize.exchange.clientCredentials(function(client, scope, d
             clientId: client.clientId})
             .save(function(err, token) {
                 if (err) { return done(err); }
-                done(null, token);
+                done(null, token.token);
             });
     });
 
@@ -167,7 +168,7 @@ passport.use(
                     done(null,oldUser);
                 }
             }else{
-                var newUser = new UserModel({
+                new UserModel({
                     userID : profile.id ,
                     email : profile.emails[0].value,
                     name : profile.displayName,
@@ -182,10 +183,14 @@ passport.use(
 
 passport.use(new BearerStrategy(
     function(token, done) {
-        UserModel.findOne({ token: token }, function (err, user) {
+        TokenModel.findOne({ token: token }, function (err, token) {
             if (err) { return done(err); }
-            if (!user) { return done(null, false); }
-            return done(null, user, { scope: 'all' });
+            if (!token) { return done(null, false); }
+            UserModel.findOne({_id: token.userId}, function(err, user){
+                if (err) { return done(err); }
+                if (!user) { return done(new Error("Token's user not found.")); }
+                return done(null, user, { scope: 'all' });
+            })
         });
     })
 );
@@ -195,7 +200,7 @@ passport.use(new ClientPasswordStrategy(
         AppModel.findOne({ _id: clientId }, function (err, client) {
             if (err) { return done(err); }
             if (!client) { return done(null, false); }
-            if (client.clientSecret != clientSecret) { return done(null, false); }
+            if (client.secret != clientSecret) { return done(null, false); }
             return done(null, client);
         });
     }
@@ -232,21 +237,52 @@ module.exports.authorization = [
     function(req, res){
         __.renderDialog(req.oauth2.client, res);
     }
+
 ]
 
+function codeEchange(req, res, next){
+
+    var client = req.clientapp;
+    var user = req.user;
+    var code = __.randomKey(16);
+    new AuthCodeModel({
+        code: code,
+        userId: user.id,
+        clientId: client.id,
+        redirectURI: client.redirectURI})
+        .save(function(err, code) {
+            console.log("sending code");
+            var result = null;
+            if (err) {
+                result = err
+            }else{
+                result = {code: code.code, redirectURI: code.redirectURI};
+            }
+            res.send(result);
+            res.end();
+            return next();
+        });
+
+}
+
 module.exports.decision = [
-    server.decision()
+    passport.authenticate('bearer', {session: false}),
+    passport.authenticate('oauth2-client', {session: false, assignProperty: 'clientapp'}),
+    codeEchange,
+    server.errorHandler()
 ];
 
 module.exports.token = [
-    passport.authenticate(['basic', 'oauth2-client-password'], { session: false }),
+    passport.authenticate(['oauth2-client-password'], { session: false }),
     server.token(),
-    server.errorHandler()];
+    server.errorHandler()
+];
 
 module.exports.simplifiedToken = [
     passport.authenticate('oauth2-client', {session: false}),
     server.token(),
-    server.errorHandler()];
+    server.errorHandler()
+];
 
 
 

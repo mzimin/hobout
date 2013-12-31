@@ -7,7 +7,7 @@ var sessionStub = function(){
 
     function setSession(req, res, next) {
 
-        var session = {};
+        var session = {authorize: {0:{}}};
         req._session = req.session = session;
         return (next());
 

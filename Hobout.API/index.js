@@ -12,6 +12,7 @@ application.get('/auth', AuthService.authorization);
 application.post('/auth/decision', AuthService.decision);
 application.post('/auth/token', AuthService.token);
 application.post('/auth/mtoken', AuthService.simplifiedToken);
+//application.post('/auth/', )
 
 application.get('/users/:name', [AuthService.authenticate('bearer', {session: false}), testSecretData]);
 application.post('/users', authActions.signupUser);

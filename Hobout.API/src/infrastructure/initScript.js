@@ -13,7 +13,7 @@ module.exports = function(){
                 login: 'hoboutDev',
                 name: 'Demo User',
                 password: '12345',
-                email:'hoboutDev@gmail.com'}).save(function(err, user){
+                email:'hoboutdev@gmail.com'}).save(function(err, user){
                     if(err){
                         logger.error(err);
                         return;

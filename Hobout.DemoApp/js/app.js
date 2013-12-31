@@ -1,4 +1,5 @@
 'use strict';
+var client_id = "52c2e979dbc461f41b000002";
 
 var application = angular.module('hobout', []);
 
@@ -13,17 +14,37 @@ application.controller('demoCtrl', function($scope, $location, $http) {
         });
     };
 
+    $scope.signin = function(user){
+
+        user.client_id = client_id;
+        user.grant_type = 'password';
+        $http.post('/auth/mtoken', user)
+            .success(function(data){
+                console.dir(data);
+                $scope.token = data.token;
+                $scope.page = 'data';
+
+            })
+            .error(function(err){
+                console.dir(err);
+            });
+
+
+    }
+
     $scope.setPage = function(page){
         $scope.page = page;
     }
 
     window.assignHoboutToken = function(token){
+
         $scope.$apply(function(){
             console.log(token);
             $scope.token = token;
             $scope.page = "data";
             $http.defaults.headers.common['Authorization'] = "Bearer " + $scope.token;
         });
+
     };
 
     $scope.loginFb = function(){
@@ -37,8 +58,8 @@ application.controller('demoCtrl', function($scope, $location, $http) {
         var popup = popupwindow('/auth/facebook', 'SignIn', 500, 300);
         popup.focus();
         return false;
-    };
 
+    };
 
     $scope.data = "You successfully login to the system! Congratulations!"
 
