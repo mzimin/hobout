@@ -1,6 +1,7 @@
 var restify = require('restify');
 var mongoose = require('mongoose');
 var initscript = require('../src/infrastructure/initScript');
+var logger = require('../src/infrastructure/logger')(module);
 
 // oauth2orize require session support , but restify do not support it, so adding session stud for integration
 var sessionStub = function(){
@@ -20,6 +21,16 @@ var sessionStub = function(){
 function Application(port){
 
     this.server = restify.createServer();
+
+    this.server.on('uncaughtException', function (req, res, route, err) {
+
+        logger.error(err);
+
+        res.send('You do not have permission to see this or something bad happened.');
+        res.end();
+
+    });
+
     this.server.use(restify.queryParser());
     this.server.use(restify.bodyParser());
     this.server.use(sessionStub());
@@ -30,26 +41,32 @@ function Application(port){
 
 Application.prototype = {
 
-    get: function(param, callbcack){
+    get: function(param, callback){
 
-        return this.server.get(param, callbcack);
+        return this.server.get(param, callback);
     },
 
-    put: function(param, callbcack){
+    put: function(param, callback){
 
-        return this.server.put(param, callbcack);
-
-    },
-
-    post: function(param, callbcack){
-
-        return this.server.post(param, callbcack);
+        return this.server.put(param, callback);
 
     },
 
-    del: function(param, callbcack){
+    post: function(param, callback){
 
-        return this.server.del(param, callbcack);
+        return this.server.post(param, callback);
+
+    },
+
+    del: function(param, callback){
+
+        return this.server.del(param, callback);
+
+    },
+
+    head: function(param, callback){
+
+        return this.server.head(param, callback);
 
     },
 

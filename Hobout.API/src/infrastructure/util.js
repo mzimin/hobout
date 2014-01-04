@@ -18,9 +18,19 @@ module.exports = {
 
     renderDialog: function(client, res){
         fs.readFile(__dirname + '../../../views/oauthdialog.html', 'utf8', function(err, html){
-            html.replace("##client.name##", client.name);
+            html = html.replace("##client.name##", client.name);
             module.exports.render(res, html);
         });
+    },
+
+    format: function(string, dataToReplace){
+        var result = string;
+        if(string && dataToReplace && dataToReplace.length > 0){
+            for(var i = 0; i < dataToReplace.length; i++){
+                result = result.replace('{'+i+'}', dataToReplace[i]);
+            }
+        }
+        return result;
     }
 
 

@@ -1,36 +1,33 @@
 var Application = require('./src/application');
 var AuthService = require('./src/services/authService');
-var authActions = require('./src/actions/authActions');
+var Actions = require('./src/actions/actions');
 
 var application = new Application(process.env.PORT);
 application.use(AuthService.initialize());
 
-
-application.get('/auth/facebook',  AuthService.authenticate('facebook', { session: false, scope: 'email', display: 'popup' }));
-application.get('/auth/facebook/callback', [AuthService.authenticate('facebook', { session: false }), loginSuccess]);
+application.get('/auth/facebook', AuthService.barrier['fb']);
+application.server.get('/auth/facebook/callback', AuthService.barrier["fb-callback"], loginSuccess);
 application.get('/auth', AuthService.authorization);
 application.post('/auth/decision', AuthService.decision);
+application.post('/auth/decision/deny', [AuthService.barrier['oauth2-client'], Actions.denyRedirect]);
 application.post('/auth/token', AuthService.token);
 application.post('/auth/mtoken', AuthService.simplifiedToken);
-//application.post('/auth/', )
 
-application.get('/users/:name', [AuthService.authenticate('bearer', {session: false}), testSecretData]);
-application.post('/users', authActions.signupUser);
+application.get('/users/:name', [AuthService.barrier['token'], testSecretData]);
+application.post('/users', [AuthService.barrier['oauth2-client'], Actions.signupUser]);
 
 application.handleStatic(/\/bower_components\/?.*/,{directory: './hobout.demoapp/bower_components'});
 application.handleStatic(/\/js\/?.*/, {directory: './hobout.demoapp/js'});
 application.handleStatic('/.*', {directory: './hobout.demoapp', default: 'index.html'});
 
-
 application.run();
-
 console.log('App started on port ' + application.port);
 
-function loginSuccess(req, res){
+function loginSuccess(req, res, next){
 
     res.write("<script type='text/javascript'>(function(){if(opener && '' != opener.location) {opener.assignHoboutToken('"+ req.user.token +
             "');}window.close();})();</script> ");
-    res.next();
+    return next();
 
 };
 
@@ -40,6 +37,7 @@ function testSecretData(req, res, next){
     return next();
 
 };
+
 
 
 

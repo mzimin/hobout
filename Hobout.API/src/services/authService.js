@@ -10,6 +10,7 @@ var AppModel = require('../models/application');
 var TokenModel = require('../models/token');
 var AuthCodeModel = require('../models/authCode');
 var UserModel = require('../models/user');
+var configManager = require('../infrastructure/configManager')('app');
 
 var APP_ID = process.env.APP_ID || '1406370232936920';
 var APP_SECRET = process.env.APP_SECRET || 'e9bd1dd07c6d702c8c4f0bc6bdb33681';
@@ -60,8 +61,8 @@ server.exchange(oauth2orize.exchange.code(function(client, code, redirectURI, do
 
     AuthCodeModel.findOne({code: code}, function(err, authCode) {
         if (err) { return done(err); }
-        if (client.id !== authCode.clientId) { return done(null, false); }
-        if (redirectURI !== authCode.redirectURI) { return done(null, false); }
+        if (client.id !== authCode.clientId) { return done(new Error("Incorrect client application"), false); }
+        if (redirectURI !== authCode.redirectURI) { return done(new Error("Incorrect redirect URI"), false); }
 
         var token = __.randomKey(256);
         new TokenModel({
@@ -153,12 +154,24 @@ passport.use(
     },
     function(accessToken, refreshToken, profile, done) {
 
-        UserModel.findOne({userID : profile.id}, function(err, oldUser){
+        UserModel.findOne({facebookId : profile.id}, function(err, oldUser){
             var saveCallback = function(error, user){
                 if(err){
                     throw err;
                 }
-                done(null, user);
+
+                new TokenModel({
+                    token: accessToken,
+                    userId: user.id,
+                    clientId: user.clientId})
+                    .save(function(err){
+                        if(err){
+                            throw err;
+                        }else{
+                            user.token = accessToken;
+                            done(null, user);
+                        }
+                    })
             }
             if(oldUser){
                 if(oldUser.token !== accessToken){
@@ -169,15 +182,14 @@ passport.use(
                 }
             }else{
                 new UserModel({
-                    userID : profile.id ,
+                    facebookId : profile.id ,
                     email : profile.emails[0].value,
                     name : profile.displayName,
+                    clientId: configManager.get('defaultApplication'),
                     token: accessToken
                 }).save(saveCallback);
             }
         });
-        profile.token = accessToken;
-        return done(null, profile);
     })
 );
 
@@ -220,6 +232,15 @@ passport.use(new ClientStrategy(function(clientId, clientSecret, done) {
 
 module.exports = passport;
 
+module.exports.barrier = {
+
+    'fb': passport.authenticate('facebook', { session: false, scope: 'email', display: 'popup' }),
+    'fb-callback': passport.authenticate('facebook', { session: false }),
+    'oauth2-client': passport.authenticate('oauth2-client', {session: false, assignProperty: 'clientapp'}),
+    'token': passport.authenticate('bearer', {session: false})
+
+}
+
 module.exports.authorization = [
 
     server.authorization(function(clientID, redirectURI, done) {
@@ -251,7 +272,6 @@ function codeEchange(req, res, next){
         clientId: client.id,
         redirectURI: client.redirectURI})
         .save(function(err, code) {
-            console.log("sending code");
             var result = null;
             if (err) {
                 result = err
@@ -260,7 +280,6 @@ function codeEchange(req, res, next){
             }
             res.send(result);
             res.end();
-            return next();
         });
 
 }

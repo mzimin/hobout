@@ -36,7 +36,8 @@ module.exports = {
         var userData = {
             name: userData.login,
             password: userData.password,
-            email: userData.email};
+            email: userData.email,
+            clientId: req.clientapp.id };
 
         _saveToDB(UserModel, {email: userData.email}, userData, saveCallback);
     },
@@ -61,6 +62,14 @@ module.exports = {
         }
 
         _saveToDB(AppModel, {name: appData.name, userId: appData.userId}, appData, saveCallback);
+
+    },
+
+    denyRedirect: function(req, res, next){
+        var url = req.clientapp.redirectURI +
+            "?error=access_denied&error_code=200&error_description=Permissions+error&error_reason=user_denied";
+        res.send({redirectURI: url});
+        return next();
 
     }
 

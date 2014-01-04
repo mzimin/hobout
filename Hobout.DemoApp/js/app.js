@@ -5,12 +5,20 @@ var application = angular.module('hobout', []);
 
 application.controller('demoCtrl', function($scope, $location, $http) {
 
-    $scope.page = 'signin';
+    $scope.setToken = function(token){
+        var data = JSON.parse(localStorage.getItem('hobout_data')) || {};
+        data.token = token;
+        localStorage.setItem('hobout_data', JSON.stringify(data));
+        $scope.token = token;
+        $http.defaults.headers.common['Authorization'] = "Bearer " + $scope.token;
+    };
 
     $scope.signup = function(user){
-        $http.post('/signup', user).success(function(data){
-            $scope.page="data";
-            $scope.token = data.token;
+        user.client_id = client_id;
+        $http.post('/users', user).success(function(data){
+            if(data.status === "success"){
+                $scope.signin({username: user.email, password: user.password});
+            }
         });
     };
 
@@ -21,14 +29,13 @@ application.controller('demoCtrl', function($scope, $location, $http) {
         $http.post('/auth/mtoken', user)
             .success(function(data){
                 console.dir(data);
-                $scope.token = data.token;
+                $scope.setToken(data.access_token);
                 $scope.page = 'data';
 
             })
             .error(function(err){
                 console.dir(err);
             });
-
 
     }
 
@@ -39,10 +46,8 @@ application.controller('demoCtrl', function($scope, $location, $http) {
     window.assignHoboutToken = function(token){
 
         $scope.$apply(function(){
-            console.log(token);
-            $scope.token = token;
+            $scope.setToken(token);
             $scope.page = "data";
-            $http.defaults.headers.common['Authorization'] = "Bearer " + $scope.token;
         });
 
     };
@@ -73,7 +78,7 @@ application.controller('demoCtrl', function($scope, $location, $http) {
 
     initFromLS($scope);
     window.onunload = function(){
-        saveToLS($scope);
+        //saveToLS($scope);
     }
 });
 
@@ -81,8 +86,8 @@ application.controller('demoCtrl', function($scope, $location, $http) {
 function initFromLS($scope){
 
     var data = JSON.parse(localStorage.getItem('hobout_data'));
-    if(data){
-        $scope.page = data.page;
+    if(data && data.token){
+        $scope.page = data.page || 'data';
         $scope.token = data.token;
     }
 
