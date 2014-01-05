@@ -6,7 +6,7 @@ var application = new Application(process.env.PORT);
 application.use(AuthService.initialize());
 
 application.get('/auth/facebook', AuthService.barrier['fb']);
-application.server.get('/auth/facebook/callback', AuthService.barrier["fb-callback"], loginSuccess);
+application.get('/auth/facebook/callback', AuthService.barrier["fb-callback"], loginSuccess);
 application.get('/auth', AuthService.authorization);
 application.post('/auth/decision', AuthService.decision);
 application.post('/auth/decision/deny', [AuthService.barrier['oauth2-client'], Actions.denyRedirect]);
@@ -14,6 +14,8 @@ application.post('/auth/token', AuthService.token);
 application.post('/auth/mtoken', AuthService.simplifiedToken);
 
 application.get('/users/:name', [AuthService.barrier['token'], testSecretData]);
+application.get('/users/:name', [AuthService.barrier['token'], testSecretData]);
+
 application.post('/users', [AuthService.barrier['oauth2-client'], Actions.signupUser]);
 
 application.handleStatic(/\/bower_components\/?.*/,{directory: './hobout.demoapp/bower_components'});

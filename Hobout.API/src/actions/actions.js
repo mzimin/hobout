@@ -48,6 +48,7 @@ module.exports = {
             name: req.body.appName,
             redirectURI: req.body.redirectURI,
             userId: req.user.id,
+            cid: __.randomKey(16),
             secret: __.randomKey(32)
         };
 

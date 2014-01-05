@@ -70,6 +70,7 @@ application.controller('demoCtrl', function($scope, $location, $http) {
 
     $scope.requestUserData = function(url){
 
+        $http.defaults.headers.common['Authorization'] = "Bearer " + $scope.token;
         $http.get(url)
             .success(function(data){$scope.data = data.data})
             .error(function(){console.log("Error occurred =("); console.dir(arguments)});

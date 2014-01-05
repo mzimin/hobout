@@ -19,11 +19,11 @@ var FB_CALLBACK = process.env.FB_CALLBACK || 'http://local.hobout.com/auth/faceb
 var server = oauth2orize.createServer();
 
 server.serializeClient(function(client, done){
-    return done(null, client.id);
+    return done(null, client.cid);
 });
 
 server.deserializeClient(function(id, done){
-    AppModel.findOne({_id: id}, function(err, client) {
+    AppModel.findOne({cid: id}, function(err, client) {
         if (err) { return done(err); }
         return done(null, client);
     });
@@ -36,7 +36,7 @@ server.grant(oauth2orize.grant.authorizationCode(function(client, redirectURI, u
     new AuthCodeModel({
         code: code,
         userId: user.id,
-        clientId: client.id,
+        clientId: client.cid,
         redirectURI: redirectURI})
         .save(function(err, code) {
             if (err) {return done(err);}
@@ -50,7 +50,7 @@ server.grant(oauth2orize.grant.token(function(client, user, ares, done) {
     new TokenModel({
         token: token,
         userId: user.id,
-        clientId: client.clientId })
+        clientId: client.cid })
         .save(function(err, token) {
             if (err) {return done(err);}
             return done(null, token);
@@ -61,7 +61,7 @@ server.exchange(oauth2orize.exchange.code(function(client, code, redirectURI, do
 
     AuthCodeModel.findOne({code: code}, function(err, authCode) {
         if (err) { return done(err); }
-        if (client.id !== authCode.clientId) { return done(new Error("Incorrect client application"), false); }
+        if (client.cid !== authCode.clientId) { return done(new Error("Incorrect client application"), false); }
         if (redirectURI !== authCode.redirectURI) { return done(new Error("Incorrect redirect URI"), false); }
 
         var token = __.randomKey(256);
@@ -80,7 +80,7 @@ server.exchange(oauth2orize.exchange.code(function(client, code, redirectURI, do
 
 server.exchange(oauth2orize.exchange.password(function(client, username, password, scope, done) {
 
-    AppModel.findOne({ _id: client.id }, function(err, clientapp) {
+    AppModel.findOne({ cid: client.cid }, function(err, clientapp) {
         if (err) { return done(err); }
         if(clientapp === null) {
             return done(null, false);
@@ -102,7 +102,7 @@ server.exchange(oauth2orize.exchange.password(function(client, username, passwor
             new TokenModel({
                 token: token,
                 userId: user.id,
-                clientId: client.id})
+                clientId: client.cid})
                 .save(function(err, tokenModel) {
                     if (err) { return done(err); }
                     done(null, tokenModel.token);
@@ -114,7 +114,7 @@ server.exchange(oauth2orize.exchange.password(function(client, username, passwor
 
 server.exchange(oauth2orize.exchange.clientCredentials(function(client, scope, done) {
 
-    AppModel.findOne({ _id : client.id }, function(err, clientapp) {
+    AppModel.findOne({ cid : client.cid }, function(err, clientapp) {
         if (err) { return done(err); }
         if(clientapp === null) {
             return done(null, false);
@@ -136,7 +136,7 @@ server.exchange(oauth2orize.exchange.clientCredentials(function(client, scope, d
 
 
 passport.use(new BasicStrategy(function(username, password, done) {
-    AppModel.findOne({ _id: username }, function(err, client) {
+    AppModel.findOne({ cid: username }, function(err, client) {
         if (err) { return done(err); }
         if (!client) { return done(null, false); }
         if (client.secret != password) { return done(null, false); }
@@ -209,7 +209,7 @@ passport.use(new BearerStrategy(
 
 passport.use(new ClientPasswordStrategy(
     function(clientId, clientSecret, done) {
-        AppModel.findOne({ _id: clientId }, function (err, client) {
+        AppModel.findOne({ cid: clientId }, function (err, client) {
             if (err) { return done(err); }
             if (!client) { return done(null, false); }
             if (client.secret != clientSecret) { return done(null, false); }
@@ -219,7 +219,7 @@ passport.use(new ClientPasswordStrategy(
 ));
 
 passport.use(new ClientStrategy(function(clientId, clientSecret, done) {
-    AppModel.findOne({ _id: clientId }, function (err, client) {
+    AppModel.findOne({ cid: clientId }, function (err, client) {
         if (err) { return done(err); }
         if (!client) { return done(null, false); }
         if(clientSecret){
@@ -244,7 +244,7 @@ module.exports.barrier = {
 module.exports.authorization = [
 
     server.authorization(function(clientID, redirectURI, done) {
-        AppModel.findOne({_id: clientID}, function(err, client) {
+        AppModel.findOne({cid: clientID}, function(err, client) {
             if (err) { return done(err); }
             if(!client){
                 return done(new Error("Client application with such id do not exist"));
@@ -269,7 +269,7 @@ function codeEchange(req, res, next){
     new AuthCodeModel({
         code: code,
         userId: user.id,
-        clientId: client.id,
+        clientId: client.cid,
         redirectURI: client.redirectURI})
         .save(function(err, code) {
             var result = null;
