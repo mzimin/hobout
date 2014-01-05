@@ -17,9 +17,10 @@ describe('application', function(){
         });
     });
 
-    describe("api:", function(){
+    describe("api", function(){
 
-        var application = new Application();
+        var application;
+        application = new Application();
         var callback = function(){return "I'm callback"};
 
         it('should correctly call get method', function(){
@@ -80,13 +81,26 @@ describe('application', function(){
 
             assert(spy.calledOn(application.server));
             assert(spy.calledOnce);
+
+        });
+
+        it('should correctly call head method', function(){
+
+            var obj = {directory: './hobout.demoapp/bower_components'};
+            application = new Application();
+            var spy = sinon.spy(application.server, 'head');
+
+            application.head('/test', callback);
+
+            assert(spy.calledOn(application.server));
+            assert(spy.calledOnce);
+
         });
 
         it('should correctly call run method', function(){
 
             var listenStub = sinon.stub().returns();
             application.server.listen = listenStub;
-
             application.run();
 
             assert(listenStub.calledOn(application.server));
@@ -96,5 +110,47 @@ describe('application', function(){
         });
 
     });
+
+    describe('model registration', function(){
+
+        var application = new Application();
+        var spyg = sinon.spy(application, 'get');
+        var spyp = sinon.spy(application, 'post');
+        var spyput = sinon.spy(application, 'put');
+        var spyd = sinon.spy(application, 'del');
+
+        var actionStub = sinon.stub();
+
+        var modelCtr = function(){
+        }
+
+        modelCtr.get = actionStub;
+        modelCtr.post = actionStub;
+        modelCtr.put = actionStub;
+        modelCtr.del = actionStub;
+        modelCtr.collection = {name:'testhome'};
+
+        it("register model correctly to answer for request", function(){
+
+            application.registerModel(modelCtr);
+            assert(spyg.calledOn(application));
+            assert(spyg.calledWith('/testhome', actionStub));
+            assert(spyg.calledOnce);
+
+            assert(spyp.calledOn(application));
+            assert(spyp.calledWith('/testhome', actionStub));
+            assert(spyp.calledOnce);
+
+            assert(spyput.calledOn(application));
+            assert(spyput.calledWith('/testhome', actionStub));
+            assert(spyput.calledOnce);
+
+            assert(spyd.calledOn(application));
+            assert(spyd.calledWith('/testhome', actionStub));
+            assert(spyd.calledOnce);
+
+        })
+
+    })
 
 });

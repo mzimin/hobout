@@ -8,7 +8,8 @@ var UserSchema = new mongoose.Schema({
     login: String,
     password: String,
     token: String,
-    refreshToken: String
+    refreshToken: String,
+    created: Date
 
 });
 

@@ -5,7 +5,8 @@ var AppSchema = new mongoose.Schema({
     secret: String,
     userID: String,
     name: String,
-    redirectURI: String
+    redirectURI: String,
+    created: Date
 });
 
 module.exports = mongoose.model('Application', AppSchema);

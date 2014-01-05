@@ -2,8 +2,11 @@ var restify = require('restify');
 var mongoose = require('mongoose');
 var initscript = require('../src/infrastructure/initScript');
 var logger = require('../src/infrastructure/logger')(module);
+var __ = require('../src/infrastructure/util');
 
-// oauth2orize require session support , but restify do not support it, so adding session stud for integration
+// oauth2orize require session support, but restify do not support sessions,
+// so sessionStub adding session stub for simplify integration
+
 var sessionStub = function(){
 
     function setSession(req, res, next) {
@@ -14,7 +17,7 @@ var sessionStub = function(){
 
     }
 
-    return (setSession);
+    return setSession;
 
 }
 
@@ -36,6 +39,13 @@ function Application(port){
     this.server.use(sessionStub());
 
     this.port = port || 80;
+
+    process.on('SIGINT', function() {
+        logger.log('application closing');
+        this.close(function(){
+            process.exit(0);
+        });
+    });
 
 };
 
@@ -72,9 +82,27 @@ Application.prototype = {
 
     run: function(){
 
-        mongoose.connect('mongodb://localhost/hobout');
+        try{
+            mongoose.connect('mongodb://localhost/hobout');
+        }catch(err){
+            logger.error(err);
+            mongoose.connection.close(function(err){
+                if(err){
+                    throw err;
+                }
+                mongoose.connect('mongodb://localhost/hobout');
+            });
+        }
         initscript();
         return this.server.listen(this.port);
+
+    },
+
+    close: function(callback){
+
+        this.server.close(function(){
+            mongoose.connection.close(callback);
+        })
 
     },
 
@@ -88,16 +116,25 @@ Application.prototype = {
 
         return this.server.use.apply(this.server, arguments);
 
+    },
+
+    registerModel: function(model, opts){
+        var self = this;
+
+        if(opts){
+            //TODO: will be implemented in future, when more complex regitering will be needed
+        }
+
+        var route = '/' + (model.routingName || model.collection.name);
+        __.each(['get', 'post', 'put', 'del'], function(method){
+           self[method](route, model[method]);
+        });
+
     }
 };
 
 module.exports = Application;
 
-
-//TODO:
-// 1) implement logginng
-// 2) log attemps to connect without tokens, or with wrong token
-// 3) implement log parser
 
 
 
