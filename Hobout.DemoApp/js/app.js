@@ -3,6 +3,8 @@ var client_id = "52c2e979dbc461f41b000002";
 
 var application = angular.module('hobout', []);
 
+var API_HOST = process.env.API_HOST || 'http://local.hobout.com';
+
 application.controller('demoCtrl', function($scope, $location, $http) {
 
     $scope.setToken = function(token){
@@ -15,7 +17,7 @@ application.controller('demoCtrl', function($scope, $location, $http) {
 
     $scope.signup = function(user){
         user.client_id = client_id;
-        $http.post('/users', user).success(function(data){
+        $http.post(API_HOST + '/users', user).success(function(data){
             if(data.status === "success"){
                 $scope.signin({username: user.email, password: user.password});
             }
@@ -26,7 +28,7 @@ application.controller('demoCtrl', function($scope, $location, $http) {
 
         user.client_id = client_id;
         user.grant_type = 'password';
-        $http.post('/auth/mtoken', user)
+        $http.post(API_HOST + '/auth/mtoken', user)
             .success(function(data){
                 console.dir(data);
                 $scope.setToken(data.access_token);
@@ -82,7 +84,6 @@ application.controller('demoCtrl', function($scope, $location, $http) {
         //saveToLS($scope);
     }
 });
-
 
 function initFromLS($scope){
 
