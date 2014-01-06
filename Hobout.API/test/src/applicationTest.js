@@ -86,7 +86,6 @@ describe('application', function(){
 
         it('should correctly call head method', function(){
 
-            var obj = {directory: './hobout.demoapp/bower_components'};
             application = new Application();
             var spy = sinon.spy(application.server, 'head');
 

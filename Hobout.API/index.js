@@ -2,6 +2,9 @@ var Application = require('./src/application');
 var AuthService = require('./src/services/authService');
 var Actions = require('./src/actions/actions');
 
+var AppModel = require('./src/models/application');
+var UserModel = require('./src/models/user');
+
 var application = new Application(process.env.PORT);
 application.use(AuthService.initialize());
 
@@ -13,14 +16,15 @@ application.post('/auth/decision/deny', [AuthService.barrier['oauth2-client'], A
 application.post('/auth/token', AuthService.token);
 application.post('/auth/mtoken', AuthService.simplifiedToken);
 
-application.get('/users/:name', [AuthService.barrier['token'], testSecretData]);
-application.get('/users/:name', [AuthService.barrier['token'], testSecretData]);
+application.registerModel(AppModel);
+application.registerModel(UserModel);
 
-application.post('/users', [AuthService.barrier['oauth2-client'], Actions.signupUser]);
+//application.post('/users', [AuthService.barrier['oauth2-client'], Actions.signupUser]);
 
 application.handleStatic(/\/bower_components\/?.*/,{directory: './hobout.demoapp/bower_components'});
 application.handleStatic(/\/js\/?.*/, {directory: './hobout.demoapp/js'});
 application.handleStatic('/.*', {directory: './hobout.demoapp', default: 'index.html'});
+
 
 application.run();
 console.log('App started on port ' + application.port);

@@ -1,4 +1,6 @@
 var mongoose = require('mongoose');
+var __ = require('../infrastructure/util');
+var restExtensions = require('./restExtensions');
 
 var AppSchema = new mongoose.Schema({
     cid: String,
@@ -9,4 +11,7 @@ var AppSchema = new mongoose.Schema({
     created: Date
 });
 
-module.exports = mongoose.model('Application', AppSchema);
+var AppModel = mongoose.model('Application', AppSchema);
+__.extend(AppModel, restExtensions);
+
+module.exports = AppModel;

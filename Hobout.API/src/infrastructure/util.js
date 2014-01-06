@@ -61,7 +61,13 @@ module.exports = {
             }
         }
 
+    },
 
+    //return function binded to the context
+    reference: function(context, func) {
+        return function() {
+            func.apply(context, arguments);
+        }
     }
 
 };

@@ -2,6 +2,7 @@ var restify = require('restify');
 var mongoose = require('mongoose');
 var initscript = require('../src/infrastructure/initScript');
 var logger = require('../src/infrastructure/logger')(module);
+var AuthService = require('../src/services/authService');
 var __ = require('../src/infrastructure/util');
 
 // oauth2orize require session support, but restify do not support sessions,
@@ -127,7 +128,7 @@ Application.prototype = {
 
         var route = '/' + (model.routingName || model.collection.name);
         __.each(['get', 'post', 'put', 'del'], function(method){
-           self[method](route, model[method]);
+           self[method](route, [AuthService.barrier['token'], __.reference(model, model[method])]);
         });
 
     }

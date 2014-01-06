@@ -1,4 +1,6 @@
 var mongoose = require('mongoose');
+var __ = require('../infrastructure/util');
+var restExtensions = require('./restExtensions');
 
 var UserSchema = new mongoose.Schema({
 
@@ -13,4 +15,7 @@ var UserSchema = new mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('User', UserSchema);
+var UserModel = mongoose.model('User', UserSchema);
+__.extend(UserModel, restExtensions);
+
+module.exports = UserModel;
