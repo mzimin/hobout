@@ -6,6 +6,8 @@ module.exports = function(){
 
     function initClientAppData(){
 
+        logger.info("initialization script starts working");
+
         UserModel.findOne({email: 'hoboutdev@gmail.com'}, function(err, user){
             if(err){
                 throw err;
@@ -88,7 +90,7 @@ module.exports = function(){
 
     }
 
-
-
+    initClientAppData();
+    initTestData();
 
 }
