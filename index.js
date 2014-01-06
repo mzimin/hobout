@@ -21,9 +21,9 @@ application.registerModel(UserModel);
 
 //application.post('/users', [AuthService.barrier['oauth2-client'], Actions.signupUser]);
 
-application.handleStatic(/\/bower_components\/?.*/,{directory: './hobout.demoapp/bower_components'});
-application.handleStatic(/\/js\/?.*/, {directory: './hobout.demoapp/js'});
-application.handleStatic('/.*', {directory: './hobout.demoapp', default: 'index.html'});
+//application.handleStatic(/\/bower_components\/?.*/,{directory: './hobout.demoapp/bower_components'});
+//application.handleStatic(/\/js\/?.*/, {directory: './hobout.demoapp/js'});
+//application.handleStatic('/.*', {directory: './hobout.demoapp', default: 'index.html'});
 
 
 application.run();

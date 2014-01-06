@@ -84,7 +84,8 @@ Application.prototype = {
     run: function(){
 
         try{
-            mongoose.connect('mongodb://localhost/hobout');
+            var mongourl = process.env.MONGO_URL || 'mongodb://localhost/hobout';
+            mongoose.connect(mongourl);
         }catch(err){
             logger.error(err);
             mongoose.connection.close(function(err){
