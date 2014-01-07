@@ -2,7 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f89f67d-fc7f-49df-888d-23137e72e1cb" name="Default" comment="">
+      <change type="DELETED" beforePath="C:\git\hobout_root\hobout.api\views\oauthdialog.html" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/actions/actions.js" afterPath="$PROJECT_DIR$/src/actions/actions.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/application.js" afterPath="$PROJECT_DIR$/src/application.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/src/applicationTest.js" afterPath="$PROJECT_DIR$/test/src/applicationTest.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/authService.js" afterPath="$PROJECT_DIR$/src/services/authService.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/hobout.iml" afterPath="$PROJECT_DIR$/.idea/hobout.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/infrastructure/initScript.js" afterPath="$PROJECT_DIR$/src/infrastructure/initScript.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/src/modelsTest.js" afterPath="$PROJECT_DIR$/test/src/modelsTest.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/oauth2Test.js" afterPath="$PROJECT_DIR$/test/oauth2Test.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/restExtensions.js" afterPath="$PROJECT_DIR$/src/models/restExtensions.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/user.js" afterPath="$PROJECT_DIR$/src/models/user.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/infrastructure/util.js" afterPath="$PROJECT_DIR$/src/infrastructure/util.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="hobout.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,49 +39,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="package.json" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="578">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="18" selection-start="1770" selection-end="1770" vertical-scroll-proportion="0.0" vertical-offset="266" max-vertical-offset="935">
+            <state line="11" column="94" selection-start="506" selection-end="506" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="actions.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/actions/actions.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="81" column="0" selection-start="2145" selection-end="2145" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1530">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/application.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="4" selection-start="1431" selection-end="1431" vertical-scroll-proportion="0.721875" vertical-offset="653" max-vertical-offset="2822">
+            <state line="14" column="0" selection-start="516" selection-end="516" vertical-scroll-proportion="0.0" vertical-offset="115" max-vertical-offset="2703">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="initScript.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/infrastructure/initScript.js">
+      <file leaf-file-name="authService.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/services/authService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="94" column="0" selection-start="3374" selection-end="3374" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
-              <folding>
-                <element signature="e#213#1796#0" expanded="false" />
-                <element signature="e#1825#3327#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Procfile" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Procfile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="18" selection-start="18" selection-end="18" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
+            <state line="16" column="46" selection-start="895" selection-end="902" vertical-scroll-proportion="0.7046632" vertical-offset="0" max-vertical-offset="5372">
               <folding />
             </state>
           </provider>
@@ -76,7 +78,58 @@
       <file leaf-file-name="server.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/node_modules/restify/lib/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="316" column="35" selection-start="9169" selection-end="9169" vertical-scroll-proportion="0.0" vertical-offset="5243" max-vertical-offset="13668">
+            <state line="572" column="0" selection-start="17110" selection-end="17110" vertical-scroll-proportion="0.0" vertical-offset="7834" max-vertical-offset="11917">
+              <folding>
+                <element signature="n#!!block;n#argumentsToChain#0" expanded="false" />
+                <element signature="n#!!block;n#mergeFormatters#0" expanded="false" />
+                <element signature="n#!!block;n#ifError#0" expanded="false" />
+                <element signature="n#!!block;n#emitRouteError#0" expanded="false" />
+                <element signature="n#!!block;n#optionsError#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cors.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node_modules/restify/lib/plugins/cors.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="92" column="0" selection-start="2482" selection-end="2482" vertical-scroll-proportion="0.0" vertical-offset="1441" max-vertical-offset="2193">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="restExtensions.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/models/restExtensions.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="153" column="40" selection-start="3645" selection-end="3645" vertical-scroll-proportion="0.0" vertical-offset="2342" max-vertical-offset="2890">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="oauth2Test.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/oauth2Test.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="92" column="0" selection-start="3023" selection-end="3023" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1666">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="modelsTest.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/src/modelsTest.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="50" column="101" selection-start="1692" selection-end="1692" vertical-scroll-proportion="0.0" vertical-offset="594" max-vertical-offset="3655">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="router.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node_modules/restify/lib/router.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="285" column="0" selection-start="8096" selection-end="8096" vertical-scroll-proportion="0.0" vertical-offset="4722" max-vertical-offset="8432">
               <folding />
             </state>
           </provider>
@@ -127,10 +180,22 @@
         <option value="$PROJECT_DIR$/Hobout.DemoApp/js/app.js" />
         <option value="$PROJECT_DIR$/Hobout.DemoApp/js/auth.js" />
         <option value="$PROJECT_DIR$/Hobout.API/index.js" />
-        <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/Procfile.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/node_modules/mongoose/lib/index.js" />
+        <option value="$PROJECT_DIR$/test/oauth2Test.js" />
+        <option value="$PROJECT_DIR$/src/infrastructure/util.js" />
+        <option value="$PROJECT_DIR$/src/models/user.js" />
         <option value="$PROJECT_DIR$/src/infrastructure/initScript.js" />
+        <option value="$PROJECT_DIR$/test/src/applicationTest.js" />
         <option value="$PROJECT_DIR$/src/application.js" />
+        <option value="$PROJECT_DIR$/config/app.js" />
+        <option value="$PROJECT_DIR$/views/oauthdialog.html" />
+        <option value="$PROJECT_DIR$/src/actions/actions.js" />
+        <option value="$PROJECT_DIR$/index.js" />
+        <option value="$PROJECT_DIR$/test/src/modelsTest.js" />
+        <option value="$PROJECT_DIR$/src/models/restExtensions.js" />
+        <option value="$PROJECT_DIR$/src/services/authService.js" />
       </list>
     </option>
   </component>
@@ -150,7 +215,7 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="2" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
@@ -197,7 +262,75 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hobout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hobout.api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hobout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hobout.api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hobout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hobout.api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hobout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hobout.api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -219,6 +352,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hobout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hobout.api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="actions" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -227,7 +378,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/index.js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/test" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
@@ -235,6 +386,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="SearchEverywhereHistory" value="" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -332,7 +484,7 @@
     </configuration>
     <configuration default="false" name="mocha" type="mocha-javascript-test-runner" factoryName="Mocha">
       <working-directory>$PROJECT_DIR$</working-directory>
-      <test-directory>$PROJECT_DIR$/Hobout.API/test</test-directory>
+      <test-directory>$PROJECT_DIR$/test</test-directory>
       <pass-parent-env>true</pass-parent-env>
       <envs />
       <ui>BDD</ui>
@@ -345,6 +497,9 @@
       <method />
     </configuration>
     <configuration default="false" name="server" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="index.js" working-dir="$PROJECT_DIR$">
+      <envs>
+        <env name="PORT" value="8888" />
+      </envs>
       <browser start="false" url="" with-js-debugger="false" />
       <RunnerSettings RunnerId="NodeJS.debug" />
       <RunnerSettings RunnerId="NodeJS.run" />
@@ -353,11 +508,11 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JsTestDriver.oauth2 authorization approaches.should show client dialog window" />
-      <item index="1" class="java.lang.String" itemvalue="JsTestDriver.oauth2 authorization approaches" />
-      <item index="2" class="java.lang.String" itemvalue="JsTestDriver.extension for corectly handling rest request to models" />
-      <item index="3" class="java.lang.String" itemvalue="Mocha.mocha" />
-      <item index="4" class="java.lang.String" itemvalue="Node.js.server" />
+      <item index="0" class="java.lang.String" itemvalue="Mocha.mocha" />
+      <item index="1" class="java.lang.String" itemvalue="Node.js.server" />
+      <item index="2" class="java.lang.String" itemvalue="JsTestDriver.oauth2 authorization approaches.should show client dialog window" />
+      <item index="3" class="java.lang.String" itemvalue="JsTestDriver.oauth2 authorization approaches" />
+      <item index="4" class="java.lang.String" itemvalue="JsTestDriver.extension for corectly handling rest request to models" />
     </list>
     <recent_temporary>
       <list size="3">
@@ -418,44 +573,44 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32896653" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.47437775" sideWeight="0.4995579" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.47316384" sideWeight="0.4995579" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32768363" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42514125" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24933687" sideWeight="0.5708029" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22458002" sideWeight="0.54347825" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5480226" sideWeight="0.4995579" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3418079" sideWeight="0.4995579" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21750663" sideWeight="0.45652175" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41525424" sideWeight="0.5004421" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41525424" sideWeight="0.4995579" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3361582" sideWeight="0.5004421" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3516949" sideWeight="0.4995579" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="JsTestDriver Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42514125" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32896653" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7641243" sideWeight="0.4995579" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.47316384" sideWeight="0.4995579" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42514125" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5480226" sideWeight="0.4995579" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5423729" sideWeight="0.4995579" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21750663" sideWeight="0.45652175" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41525424" sideWeight="0.5004421" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3361582" sideWeight="0.5004421" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32896653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24977857" sideWeight="0.5708029" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32768363" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24933687" sideWeight="0.5708029" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18037136" sideWeight="0.54347825" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41525424" sideWeight="0.4995579" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22458002" sideWeight="0.54347825" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.45903954" sideWeight="0.4995579" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="JsTestDriver Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -476,172 +631,464 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Hobout.API/node_modules/passport/lib/passport/middleware/authenticate.js</url>
-          <line>215</line>
-          <option name="timeStamp" value="11" />
+          <url>file://$PROJECT_DIR$/node_modules/restify/lib/server.js</url>
+          <line>572</line>
+          <option name="timeStamp" value="134" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Hobout.API/src/services/authService.js</url>
-          <line>138</line>
-          <option name="timeStamp" value="46" />
+          <url>file://$PROJECT_DIR$/node_modules/restify/lib/server.js</url>
+          <line>591</line>
+          <option name="timeStamp" value="135" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Hobout.API/node_modules/oauth2orize/lib/middleware/decision.js</url>
-          <line>85</line>
-          <option name="timeStamp" value="58" />
+          <url>file://$PROJECT_DIR$/node_modules/restify/lib/server.js</url>
+          <line>616</line>
+          <option name="timeStamp" value="145" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Hobout.API/node_modules/oauth2orize/lib/middleware/decision.js</url>
+          <url>file://$PROJECT_DIR$/node_modules/restify/lib/router.js</url>
+          <line>285</line>
+          <option name="timeStamp" value="146" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/node_modules/restify/lib/router.js</url>
+          <line>445</line>
+          <option name="timeStamp" value="162" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/node_modules/restify/lib/router.js</url>
+          <line>440</line>
+          <option name="timeStamp" value="163" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/models/restExtensions.js</url>
+          <line>117</line>
+          <option name="timeStamp" value="171" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/test/src/modelsTest.js</url>
+          <line>79</line>
+          <option name="timeStamp" value="174" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/services/authService.js</url>
           <line>82</line>
-          <option name="timeStamp" value="59" />
+          <option name="timeStamp" value="175" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Hobout.API/node_modules/oauth2orize/lib/middleware/transactionLoader.js</url>
-          <line>42</line>
-          <option name="timeStamp" value="61" />
+          <url>file://$PROJECT_DIR$/src/services/authService.js</url>
+          <line>221</line>
+          <option name="timeStamp" value="176" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Hobout.API/node_modules/oauth2orize/lib/middleware/transactionLoader.js</url>
-          <line>47</line>
-          <option name="timeStamp" value="62" />
+          <url>file://$PROJECT_DIR$/src/services/authService.js</url>
+          <line>222</line>
+          <option name="timeStamp" value="177" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Hobout.API/src/services/authService.js</url>
-          <line>264</line>
-          <option name="timeStamp" value="65" />
+          <url>file://$PROJECT_DIR$/src/services/authService.js</url>
+          <line>92</line>
+          <option name="timeStamp" value="178" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Hobout.API/src/services/authService.js</url>
-          <line>226</line>
-          <option name="timeStamp" value="67" />
+          <url>file://$PROJECT_DIR$/src/services/authService.js</url>
+          <line>94</line>
+          <option name="timeStamp" value="179" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Hobout.API/src/services/authService.js</url>
-          <line>201</line>
-          <option name="timeStamp" value="68" />
+          <url>file://$PROJECT_DIR$/src/services/authService.js</url>
+          <line>100</line>
+          <option name="timeStamp" value="180" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Hobout.API/node_modules/mongoose/node_modules/mongodb/lib/mongodb/auth/mongodb_plain.js</url>
-          <line>6</line>
-          <option name="timeStamp" value="72" />
+          <url>file://$PROJECT_DIR$/src/services/authService.js</url>
+          <line>107</line>
+          <option name="timeStamp" value="181" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Hobout.API/src/services/authService.js</url>
-          <line>62</line>
-          <option name="timeStamp" value="75" />
+          <url>file://$PROJECT_DIR$/src/models/restExtensions.js</url>
+          <line>105</line>
+          <option name="timeStamp" value="184" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Hobout.API/src/services/authService.js</url>
-          <line>171</line>
-          <option name="timeStamp" value="88" />
+          <url>file://$PROJECT_DIR$/src/models/restExtensions.js</url>
+          <line>144</line>
+          <option name="timeStamp" value="185" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Hobout.API/src/services/authService.js</url>
-          <line>183</line>
-          <option name="timeStamp" value="96" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Hobout.API/index.js</url>
-          <line>40</line>
-          <option name="timeStamp" value="100" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Hobout.API/index.js</url>
-          <line>32</line>
-          <option name="timeStamp" value="101" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Hobout.API/test/oauth2Test.js</url>
-          <line>46</line>
-          <option name="timeStamp" value="110" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Hobout.API/test/src/applicationTest.js</url>
-          <line>133</line>
-          <option name="timeStamp" value="116" />
+          <url>file://$PROJECT_DIR$/src/models/restExtensions.js</url>
+          <line>145</line>
+          <option name="timeStamp" value="186" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="125" />
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="187" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://C:/from Paralect/mPower/source/TenantsContent/Default/content/scripts/custom/Calendar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="19" selection-start="280" selection-end="280" vertical-scroll-proportion="0.2533532" vertical-offset="0" max-vertical-offset="8619" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Procfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="18" selection-start="18" selection-end="18" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="388" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
+        <state line="19" column="30" selection-start="498" selection-end="498" vertical-scroll-proportion="-12.423077" vertical-offset="0" max-vertical-offset="561" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/superagent/node_modules/qs/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="0" selection-start="630" selection-end="630" vertical-scroll-proportion="0.0" vertical-offset="538" max-vertical-offset="6681">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/from Paralect/mPower/source/TenantsContent/Default/content/scripts/custom/Calendar.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/superagent/lib/node/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="28" selection-start="12937" selection-end="12956" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="8619">
+        <state line="51" column="0" selection-start="817" selection-end="817" vertical-scroll-proportion="0.0" vertical-offset="776" max-vertical-offset="15997">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Roaming/npm/node_modules/mocha/bin/_mocha">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="54" selection-end="54" vertical-scroll-proportion="0.0" vertical-offset="11" max-vertical-offset="7701">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.WebStorm7/system/extLibs/nodejs-v0.11.7-src/core-modules-sources/lib/module.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="332" column="0" selection-start="9376" selection-end="9376" vertical-scroll-proportion="0.33242506" vertical-offset="5199" max-vertical-offset="8772" />
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/lib.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="10" selection-start="2678" selection-end="2678" vertical-scroll-proportion="0.33333334" vertical-offset="923" max-vertical-offset="155941" />
-      </provider>
-    </entry>
-    <entry file="file://C:/from Paralect/mPower/source/TenantsContent/Default/content/scripts/paralect/Request.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="296" column="36" selection-start="5378" selection-end="5378" vertical-scroll-proportion="4.98941" vertical-offset="1734" max-vertical-offset="8772" />
-      </provider>
-    </entry>
-    <entry file="file://C:/from Paralect/mPower/source/TenantsContent/Default/content/scripts/custom/Calendar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="19" selection-start="280" selection-end="280" vertical-scroll-proportion="0.2533532" vertical-offset="0" max-vertical-offset="8619">
+        <state line="448" column="0" selection-start="12551" selection-end="12551" vertical-scroll-proportion="0.0" vertical-offset="7195" max-vertical-offset="8772">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$USER_HOME$/AppData/Roaming/npm/node_modules/mocha/node_modules/commander/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="424">
+        <state line="40" column="0" selection-start="651" selection-end="651" vertical-scroll-proportion="0.0" vertical-offset="597" max-vertical-offset="14501">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/restify/lib/server.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/sinon/lib/sinon/spy.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="316" column="35" selection-start="9169" selection-end="9169" vertical-scroll-proportion="0.0" vertical-offset="5243" max-vertical-offset="13668">
+        <state line="462" column="0" selection-start="13914" selection-end="13914" vertical-scroll-proportion="0.33333334" vertical-offset="7720" max-vertical-offset="9877">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/mongoose/lib/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="18" selection-start="1770" selection-end="1770" vertical-scroll-proportion="0.0" vertical-offset="266" max-vertical-offset="935">
+        <state line="78" column="0" selection-start="2071" selection-end="2071" vertical-scroll-proportion="0.0" vertical-offset="1248" max-vertical-offset="10999">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Procfile">
+    <entry file="file://$PROJECT_DIR$/node_modules/oauth2orize/lib/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="18" selection-start="18" selection-end="18" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="388">
+        <state line="40" column="0" selection-start="676" selection-end="676" vertical-scroll-proportion="0.33333334" vertical-offset="597" max-vertical-offset="1309">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mongoose/node_modules/muri/lib/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="0" selection-start="735" selection-end="735" vertical-scroll-proportion="1.4151515" vertical-offset="247" max-vertical-offset="4097">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/restify/node_modules/qs/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="0" selection-start="630" selection-end="630" vertical-scroll-proportion="0.0" vertical-offset="538" max-vertical-offset="6681">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mongoose/node_modules/mongodb/lib/mongodb/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="0" selection-start="690" selection-end="690" vertical-scroll-proportion="0.8945869" vertical-offset="230" max-vertical-offset="1275">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/restify/node_modules/csv/lib/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="159" column="0" selection-start="5247" selection-end="5247" vertical-scroll-proportion="-1.6508876" vertical-offset="3261" max-vertical-offset="6205">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/passport/lib/passport/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="0" selection-start="972" selection-end="972" vertical-scroll-proportion="0.3133903" vertical-offset="655" max-vertical-offset="7888">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/passport-facebook/node_modules/passport-oauth2/node_modules/uid2/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="0" selection-start="998" selection-end="998" vertical-scroll-proportion="0.66096866" vertical-offset="686" max-vertical-offset="1037">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/oauth2orize/node_modules/uid2/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="0" selection-start="998" selection-end="998" vertical-scroll-proportion="0.66096866" vertical-offset="686" max-vertical-offset="1037">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/restify/lib/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="77" column="44" selection-start="2285" selection-end="2285" vertical-scroll-proportion="0.0" vertical-offset="1192" max-vertical-offset="2822">
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/restify/lib/plugins/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="26" selection-start="369" selection-end="369" vertical-scroll-proportion="0.0" vertical-offset="53" max-vertical-offset="612">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/token.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="661">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/authCode.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="661">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mongoose/node_modules/mpromise/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mongoose/lib/connection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="12308">
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mongoose/lib/promise.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="27" selection-start="60" selection-end="60" vertical-scroll-proportion="0.0" vertical-offset="714" max-vertical-offset="4539">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="3213" max-vertical-offset="3689">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="0" selection-start="946" selection-end="946" vertical-scroll-proportion="0.33187774" vertical-offset="1004" max-vertical-offset="15929">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mongoose/node_modules/mquery/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="44" selection-start="44" selection-end="44" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="119">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/place.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="460">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/application.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="661">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.WebStorm7/system/extLibs/nodejs-v0.11.7-src/core-modules-sources/lib/crypto.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="204" column="2" selection-start="5622" selection-end="5622" vertical-scroll-proportion="0.0" vertical-offset="3029" max-vertical-offset="10047">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mongoose/lib/query.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1735" column="17" selection-start="46201" selection-end="46201" vertical-scroll-proportion="-33.73077" vertical-offset="28618" max-vertical-offset="48926">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/winston/lib/winston/container.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="0" selection-start="980" selection-end="980" vertical-scroll-proportion="0.33333334" vertical-offset="415" max-vertical-offset="1717">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mongoose/node_modules/mquery/lib/mquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2177" column="0" selection-start="54097" selection-end="54097" vertical-scroll-proportion="0.0" vertical-offset="36921" max-vertical-offset="39797">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mongoose/lib/model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="980" column="14" selection-start="25630" selection-end="25630" vertical-scroll-proportion="0.0" vertical-offset="16519" max-vertical-offset="43911">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/should/lib/should.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="297" column="9" selection-start="5065" selection-end="5065" vertical-scroll-proportion="0.0" vertical-offset="4874" max-vertical-offset="17051">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/src/applicationTest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="137" column="31" selection-start="3926" selection-end="3926" vertical-scroll-proportion="0.0" vertical-offset="2027" max-vertical-offset="2839">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="52" selection-start="71" selection-end="81" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="136">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="0" selection-start="409" selection-end="409" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/infrastructure/util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="48" selection-start="546" selection-end="557" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1394">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/infrastructure/initScript.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="0" selection-start="3374" selection-end="3374" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
+        <state line="17" column="74" selection-start="604" selection-end="604" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1632">
           <folding>
-            <element signature="e#213#1796#0" expanded="false" />
-            <element signature="e#1825#3327#0" expanded="false" />
+            <element signature="e#2815#3653#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/oauth2Test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="0" selection-start="3023" selection-end="3023" vertical-scroll-proportion="0.0" vertical-offset="1417" max-vertical-offset="1666">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/src/modelsTest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="101" selection-start="1692" selection-end="1692" vertical-scroll-proportion="0.0" vertical-offset="594" max-vertical-offset="3655">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/restify/lib/plugins/cors.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="0" selection-start="2482" selection-end="2482" vertical-scroll-proportion="0.0" vertical-offset="1441" max-vertical-offset="2193">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/restify/lib/router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="285" column="0" selection-start="8096" selection-end="8096" vertical-scroll-proportion="0.0" vertical-offset="4722" max-vertical-offset="8432">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/restExtensions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="153" column="40" selection-start="3645" selection-end="3645" vertical-scroll-proportion="0.0" vertical-offset="2342" max-vertical-offset="2890">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/application.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="4" selection-start="1431" selection-end="1431" vertical-scroll-proportion="0.721875" vertical-offset="653" max-vertical-offset="2822">
+        <state line="14" column="0" selection-start="516" selection-end="516" vertical-scroll-proportion="0.0" vertical-offset="115" max-vertical-offset="2703">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/restify/lib/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="572" column="0" selection-start="17110" selection-end="17110" vertical-scroll-proportion="0.0" vertical-offset="7834" max-vertical-offset="11917">
+          <folding>
+            <element signature="n#!!block;n#argumentsToChain#0" expanded="false" />
+            <element signature="n#!!block;n#mergeFormatters#0" expanded="false" />
+            <element signature="n#!!block;n#ifError#0" expanded="false" />
+            <element signature="n#!!block;n#emitRouteError#0" expanded="false" />
+            <element signature="n#!!block;n#optionsError#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="94" selection-start="506" selection-end="506" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actions/actions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="81" column="0" selection-start="2145" selection-end="2145" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1530">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/authService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="46" selection-start="895" selection-end="902" vertical-scroll-proportion="0.7046632" vertical-offset="0" max-vertical-offset="5372">
           <folding />
         </state>
       </provider>

@@ -72,6 +72,14 @@ module.exports = {
         res.send({redirectURI: url});
         return next();
 
+    },
+
+    loginSuccess: function(req, res, next){
+
+        res.write("<script type='text/javascript'>(function(){if(opener && '' != opener.location) {opener.assignHoboutToken('"+ req.user.token +
+            "');}window.close();})();</script> ");
+        return next();
+
     }
 
 }

@@ -26,6 +26,12 @@ function Application(port){
 
     this.server = restify.createServer();
 
+    //by default restify do not think that Authorization header should be allowed during CORS,
+    // so all bearer auth request will be failing because of CORS. Fixing it.
+    restify.CORS.ALLOW_HEADERS.push('authorization');
+
+    this.server.use(restify.CORS());
+
     this.server.on('uncaughtException', function (req, res, route, err) {
 
         logger.error(err);
@@ -34,24 +40,6 @@ function Application(port){
         res.end();
 
     });
-
-    var enableCORS = function(req, res, next) {
-        res.header('Access-Control-Allow-Origin', '*');
-        res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-        res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
-
-        // intercept OPTIONS method
-        if ('OPTIONS' == req.method) {
-            res.send(200);
-        }
-        else {
-            next();
-        }
-    };
-
-
-    // enable CORS!
-    this.server.use(enableCORS);
 
     this.server.use(restify.queryParser());
     this.server.use(restify.bodyParser());
@@ -146,8 +134,13 @@ Application.prototype = {
         }
 
         var route = '/' + (model.routingName || model.collection.name);
+        var tmpRoute;
+
         __.each(['get', 'post', 'put', 'del'], function(method){
-           self[method](route, [AuthService.barrier['token'], __.reference(model, model[method])]);
+
+            (method === 'put' || method === 'del') ? tmpRoute = route + '/:id' : tmpRoute = route;
+            self[method](tmpRoute, [AuthService.barrier['token'], __.reference(model, model[method])]);
+
         });
 
     }

@@ -42,6 +42,10 @@ module.exports = {
 
     },
 
+    createHmac: function(alg, key){
+        return crypto.createHmac(alg, key);
+    },
+
     each: function(arr, callback){
 
         if(arr && arr.length > 0){

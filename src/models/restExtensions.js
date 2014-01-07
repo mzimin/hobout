@@ -10,7 +10,7 @@ function _isSimpleValue(str){
 
 function _arraify(str){
 
-    return str.split(delimiters_regex);
+    return str.toString().split(delimiters_regex);
 
 }
 
@@ -32,6 +32,8 @@ module.exports = {
 
     post: function(req, res, next){
 
+        var model = this;
+
         new model(req.body)
             .save(function(err, elem){
                 if(err){
@@ -44,8 +46,8 @@ module.exports = {
     },
 
     put: function(req, res, next){
-
-        model.findById(req.body.id, function(err, elem){
+        var model = this;
+        model.findById(req.query.id, function(err, elem){
 
             if(err){
                 throw err;
@@ -76,7 +78,8 @@ module.exports = {
 
     del: function(req, res, next){
 
-        model.findById(req.body.id, function(err, elem){
+        var model = this;
+        model.findById(req.query.id, function(err, elem){
             if(err){
                 throw err;
             }
@@ -91,13 +94,14 @@ module.exports = {
                 }
 
                 res.send({status: 'success'});
-                return next;
+                return next();
             })
         })
 
     },
 
-    buildQuery: function(req, res, next){
+    //TODO: implement enumeration instead of arrays
+    buildQuery: function(req){
 
         var model = this;
         var keyCommands = ['q', 'sort', 'limit', 'offset', 'count'];
@@ -105,11 +109,11 @@ module.exports = {
         var filters = [];
         var commands = [];
 
-        __.each(req.query, function(param){
-           if(keyCommands.indexOf(param) === -1){
-               filters.push({key: param, val: req.query[param]});
+        for(var key in req.query){
+           if(key != '__proto__' && keyCommands.indexOf(key) === -1){
+               filters.push({key: key, val: req.query[key]});
            }
-        });
+        }
 
         var query;
 
@@ -119,7 +123,7 @@ module.exports = {
 
         }else{
 
-            query = models.find();
+            query = model.find();
             while(filters.length > 0){
                 var elem = filters.shift();
                 query = _isSimpleValue(elem.val) ?
@@ -129,12 +133,12 @@ module.exports = {
 
             if('sort' in req.query){
                 var sortObj = {};
-                _each(_arraify(req.query.sort), function(elem){
+                __.each(_arraify(req.query.sort), function(elem){
                     sortObj[req.query.sort] = -1;
                 })
                 query = query.sort(sortObj);
             }else{
-                query = query.sort({creation: -1});
+                query = query.sort({created: -1});
             }
 
             function addNumberBasedConstrain(key, func){

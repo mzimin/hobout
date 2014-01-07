@@ -1,4 +1,5 @@
 var Application = require('../../src/application');
+var __ = require('../../src/infrastructure/util');
 var assert = require('assert');
 var sinon = require('sinon');
 
@@ -131,21 +132,27 @@ describe('application', function(){
 
         it("register model correctly to answer for request", function(){
 
+            var authBarier = require('../../src/services/authService').barrier['token'];
+
+            //GET
             application.registerModel(modelCtr);
             assert(spyg.calledOn(application));
-            assert(spyg.calledWith('/testhome', actionStub));
+            assert(spyg.calledWith('/testhome'));
             assert(spyg.calledOnce);
 
+            //POST
             assert(spyp.calledOn(application));
-            assert(spyp.calledWith('/testhome', actionStub));
+            assert(spyp.calledWith('/testhome'));
             assert(spyp.calledOnce);
 
+            //PUT
             assert(spyput.calledOn(application));
-            assert(spyput.calledWith('/testhome', actionStub));
+            assert(spyput.calledWith('/testhome/:id'));
             assert(spyput.calledOnce);
 
+            //DEL
             assert(spyd.calledOn(application));
-            assert(spyd.calledWith('/testhome', actionStub));
+            assert(spyd.calledWith('/testhome/:id'));
             assert(spyd.calledOnce);
 
         })

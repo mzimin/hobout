@@ -14,7 +14,7 @@ var configManager = require('../infrastructure/configManager')('app');
 
 var APP_ID = process.env.APP_ID || '1406370232936920';
 var APP_SECRET = process.env.APP_SECRET || 'e9bd1dd07c6d702c8c4f0bc6bdb33681';
-var FB_CALLBACK = process.env.FB_CALLBACK || 'http://local.hobout.com/auth/facebook/callback';
+var FB_CALLBACK = process.env.FB_CALLBACK || 'http://api.hobout.com/auth/facebook/callback';
 
 var server = oauth2orize.createServer();
 
@@ -95,7 +95,7 @@ server.exchange(oauth2orize.exchange.password(function(client, username, passwor
             if(user === null) {
                 return done(null, false);
             }
-            if(password !== user.password) {
+            if(!user.checkPassword(password)) {
                 return done(null, false);
             }
             var token = __.randomKey(256);
@@ -256,7 +256,9 @@ module.exports.authorization = [
         });
     }),
     function(req, res){
-        __.renderDialog(req.oauth2.client, res);
+        var dialog_url = process.env.OAUTH2_DIALOG || 'http://local.hobout.com/#/dialog';
+        res.header('Location', dialog_url);
+        res.send(302);
     }
 
 ]

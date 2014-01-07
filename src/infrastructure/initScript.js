@@ -6,8 +6,6 @@ module.exports = function(){
 
     function initClientAppData(){
 
-        logger.info("initialization script starts working");
-
         UserModel.findOne({email: 'hoboutdev@gmail.com'}, function(err, user){
             if(err){
                 throw err;
@@ -56,6 +54,7 @@ module.exports = function(){
             }
             if(!user){
                 new UserModel({
+
                     login: 'testuser',
                     name: 'Test User',
                     password: '12345',
@@ -64,6 +63,19 @@ module.exports = function(){
                             logger.error(err);
                             return;
                         }
+
+                        function cb(err){if(err) { throw err }};
+
+                        for(var i = 0; i < 10; i++){
+
+                            new UserModel({
+                                login: 'testuser' + i,
+                                name: 'test test' + i,
+                                password: Math.random().toString(),
+                                email: 'test' + i + '@test.com'}).save(cb);
+
+                        }
+
 
                         AppModel.findOne({cid: 'testclient'}, function(err, app){
                             if(err){

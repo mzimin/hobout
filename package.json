@@ -18,11 +18,11 @@
     "passport-oauth2-client-password": "~0.1.1",
     "winston": "~0.7.2",
     "passport-http": "~0.2.2",
-    "supertest": "~0.8.2",
     "superagent": "~0.15.7"
   },
   "devDependencies": {
     "mocha": "~1.16.1",
-    "sinon": "~1.7.3"
+    "sinon": "~1.7.3",
+    "should": "~2.1.1"
   }
 }
