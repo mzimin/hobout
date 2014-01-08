@@ -256,9 +256,13 @@ module.exports.authorization = [
         });
     }),
     function(req, res){
-        var dialog_url = process.env.OAUTH2_DIALOG || 'http://local.hobout.com/#/dialog';
-        res.header('Location', dialog_url);
-        res.send(302);
+        var dialog_url;
+        if(req.query.grant_type == 'code')
+            dialog_url = process.env.OAUTH2_DIALOG || 'http://local.hobout.com/#/dialog';
+        else{
+            dialog_url = process.env.OAUTH2_DIALOG || 'http://local.hobout.com/#/tokendialog';
+        }
+        __.redirect(dialog_url, res);
     }
 
 ]
@@ -267,22 +271,44 @@ function codeEchange(req, res, next){
 
     var client = req.clientapp;
     var user = req.user;
-    var code = __.randomKey(16);
-    new AuthCodeModel({
-        code: code,
-        userId: user.id,
-        clientId: client.cid,
-        redirectURI: client.redirectURI})
-        .save(function(err, code) {
-            var result = null;
-            if (err) {
-                result = err
-            }else{
-                result = {code: code.code, redirectURI: code.redirectURI};
-            }
-            res.send(result);
-            res.end();
-        });
+    var result = null;
+
+    if(req.body.directToken){
+
+        new TokenModel({
+            clientId: client.cid,
+            userId: user.id,
+            token: __.randomKey(256)
+        }).save(
+            function(err, token){;
+                if (err) {
+                    result = err
+                }else{
+                    result = {access_token: token.token, redirectURI: client.redirectURI};
+                }
+                res.send(result);
+                res.end();
+            });
+
+    }else{
+
+        var code = __.randomKey(16);
+        new AuthCodeModel({
+            code: code,
+            userId: user.id,
+            clientId: client.cid,
+            redirectURI: client.redirectURI})
+            .save(function(err, code) {
+                if (err) {
+                    result = err
+                }else{
+                    result = {code: code.code, redirectURI: code.redirectURI};
+                }
+                res.send(result);
+                res.end();
+            });
+
+    }
 
 }
 

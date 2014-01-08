@@ -21,6 +21,8 @@ application.registerModel(UserModel);
 
 application.run();
 
+console.log("application succesfullt starts on port: " + application.port);
+
 
 
 

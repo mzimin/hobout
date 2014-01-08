@@ -67,18 +67,18 @@ module.exports = {
     },
 
     denyRedirect: function(req, res, next){
+
         var url = req.clientapp.redirectURI +
             "?error=access_denied&error_code=200&error_description=Permissions+error&error_reason=user_denied";
-        res.send({redirectURI: url});
-        return next();
+        __.redirect(url);
 
     },
 
     loginSuccess: function(req, res, next){
 
-        res.write("<script type='text/javascript'>(function(){if(opener && '' != opener.location) {opener.assignHoboutToken('"+ req.user.token +
-            "');}window.close();})();</script> ");
-        return next();
+        var host = process.env.CLIENTAPP || 'local.hobout.com';
+        var url = host + '/fb/cb/#' + req.user.token;
+        __.redirect(url, res, 'http://');
 
     }
 

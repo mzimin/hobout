@@ -30,6 +30,18 @@ module.exports = {
 
     },
 
+    redirect: function(url, res, prefix){
+
+        var redirectURL = url;
+        if(prefix){
+            redirectURL = prefix + url;
+        }
+
+        res.header('Location', redirectURL);
+        res.send(302);
+
+    },
+
     format: function(string, dataToReplace){
 
         var result = string;
