@@ -76,9 +76,9 @@ module.exports = {
 
     loginSuccess: function(req, res, next){
 
-        var host = process.env.CLIENTAPP || 'local.hobout.com';
+        var host = process.env.CLIENTAPP || 'http://local.hobout.com';
         var url = host + '/fb/cb/#' + req.user.token;
-        __.redirect(url, res, 'http://');
+        __.redirect(url, res);
 
     }
 

@@ -32,12 +32,7 @@ module.exports = {
 
     redirect: function(url, res, prefix){
 
-        var redirectURL = url;
-        if(prefix){
-            redirectURL = prefix + url;
-        }
-
-        res.header('Location', redirectURL);
+        res.header('Location', url);
         res.send(302);
 
     },
