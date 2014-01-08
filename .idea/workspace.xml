@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f89f67d-fc7f-49df-888d-23137e72e1cb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/actions/actions.js" afterPath="$PROJECT_DIR$/src/actions/actions.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/services/authService.js" afterPath="$PROJECT_DIR$/src/services/authService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/infrastructure/initScript.js" afterPath="$PROJECT_DIR$/src/infrastructure/initScript.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/infrastructure/util.js" afterPath="$PROJECT_DIR$/src/infrastructure/util.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="hobout.iws" />
@@ -51,7 +47,7 @@
       <file leaf-file-name="authService.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/services/authService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="311" column="0" selection-start="10101" selection-end="10101" vertical-scroll-proportion="0.843318" vertical-offset="4921" max-vertical-offset="5814">
+            <state line="264" column="37" selection-start="9007" selection-end="9007" vertical-scroll-proportion="0.8011364" vertical-offset="4347" max-vertical-offset="5814">
               <folding />
             </state>
           </provider>
@@ -537,18 +533,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1168" height="840" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32896653" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.471831" sideWeight="0.4995579" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.71468925" sideWeight="0.4995579" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32768363" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.53954804" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7641243" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24933687" sideWeight="0.5708029" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22458002" sideWeight="0.54347825" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3418079" sideWeight="0.4995579" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21750663" sideWeight="0.45652175" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3361582" sideWeight="0.5004421" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3502825" sideWeight="0.4995579" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3502825" sideWeight="0.4995579" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -962,7 +958,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/services/authService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="311" column="0" selection-start="10101" selection-end="10101" vertical-scroll-proportion="0.843318" vertical-offset="4921" max-vertical-offset="5814">
+        <state line="264" column="37" selection-start="9007" selection-end="9007" vertical-scroll-proportion="0.8011364" vertical-offset="4347" max-vertical-offset="5814">
           <folding />
         </state>
       </provider>

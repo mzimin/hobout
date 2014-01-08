@@ -258,9 +258,9 @@ module.exports.authorization = [
     function(req, res){
         var dialog_url;
         if(req.query.grant_type == 'code')
-            dialog_url = process.env.OAUTH2_DIALOG || 'http://local.hobout.com/#/dialog';
+            dialog_url = (process.env.CLIENTAPP + '/#/dialog') || 'http://local.hobout.com/#/dialog';
         else{
-            dialog_url = process.env.OAUTH2_DIALOG || 'http://local.hobout.com/#/tokendialog';
+            dialog_url = (process.env.CLIENTAPP + '/#/tokendialog') || 'http://local.hobout.com/#/tokendialog';
         }
         __.redirect(dialog_url, res);
     }
