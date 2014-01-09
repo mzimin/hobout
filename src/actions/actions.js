@@ -1,6 +1,7 @@
 var UserModel = require('../models/user');
 var AppModel = require('../models/application');
 var __ = require('../infrastructure/util');
+var configManager = require('../infrastructure/configManager')('app');
 
 function _saveToDB(model, query, element, callaback){
 
@@ -76,7 +77,7 @@ module.exports = {
 
     loginSuccess: function(req, res, next){
 
-        var host = process.env.CLIENTAPP || 'http://local.hobout.com';
+        var host = configManager.get('clientApp');
         var url = host + '/fb/cb/#' + req.user.token;
         __.redirect(url, res);
 

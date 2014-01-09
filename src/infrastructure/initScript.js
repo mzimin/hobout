@@ -1,6 +1,7 @@
 var AppModel = require('../models/application');
 var UserModel = require('../models/user');
 var logger = require('../infrastructure/logger')(module);
+var configManager = require('../infrastructure/configManager')('app');
 
 module.exports = function(){
 
@@ -30,7 +31,7 @@ module.exports = function(){
                                     cid: 'democlient',
                                     name: 'hoboutClient',
                                     secret: '11111',
-                                    redirectURI: (process.env.CLIENTAPP || 'http://api.hobout.com') + '/auth/callback',
+                                    redirectURI: configManager.get('clientApp') + '/auth/callback',
                                     userId: user.id})
                                     .save(function(err){
                                         if(err){
@@ -86,7 +87,7 @@ module.exports = function(){
                                     cid: 'testclient',
                                     name: 'Test App',
                                     secret: '22222',
-                                    redirectURI: (process.env.CLIENTAPP || 'http://api.hobout.com') + '/auth/callback',
+                                    redirectURI: configManager.get('clientApp') + '/auth/callback',
                                     userId: user.id})
                                     .save(function(err){
                                         if(err){

@@ -16,6 +16,7 @@ describe('application', function(){
             assert.equal(appWithoutPort.port, 80);
 
         });
+
     });
 
     describe("api", function(){

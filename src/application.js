@@ -4,6 +4,7 @@ var initscript = require('../src/infrastructure/initScript');
 var logger = require('../src/infrastructure/logger')(module);
 var AuthService = require('../src/services/authService');
 var __ = require('../src/infrastructure/util');
+var configManager = require('../src/infrastructure/configManager')('app');
 
 // oauth2orize require session support, but restify do not support sessions,
 // so sessionStub adding session stub for simplify integration
@@ -27,7 +28,8 @@ function Application(port){
     this.server = restify.createServer();
 
     //by default restify do not think that Authorization header should be allowed during CORS,
-    // so all bearer auth request will be failing because of CORS. Fixing it.
+    //so all bearer auth request will be failing because of CORS. Fixing it by adding Authorization header
+    //in to the array, which contains allowed headers
     restify.CORS.ALLOW_HEADERS.push('authorization');
 
     this.server.use(restify.CORS());
@@ -45,7 +47,7 @@ function Application(port){
     this.server.use(restify.bodyParser());
     this.server.use(sessionStub());
 
-    this.port = port || 80;
+    this.port = port || configManager.get('port');
 
     process.on('SIGINT', function() {
         logger.log('application closing');
@@ -90,15 +92,14 @@ Application.prototype = {
     run: function(){
 
         try{
-            var mongourl = process.env.MONGO_URL || 'mongodb://localhost/hobout';
-            mongoose.connect(mongourl);
+            mongoose.connect(configManager.get('mongoUrl'));
         }catch(err){
             logger.error(err);
             mongoose.connection.close(function(err){
                 if(err){
                     throw err;
                 }
-                mongoose.connect('mongodb://localhost/hobout');
+                mongoose.connect(configManager.get('mongoUrl'));
             });
         }
         initscript();

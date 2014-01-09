@@ -1,3 +1,12 @@
+
+/*
+* Implementing auth logic. Solution currently based on 2 open source projects:
+* 1) oauth2orize ( https://github.com/jaredhanson/oauth2orize )
+* 2) passport ( https://github.com/jaredhanson/passport )
+* with custom additions which allow using this libraries without having session
+* */
+
+
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 var BearerStrategy = require('passport-http-bearer').Strategy;
@@ -12,16 +21,18 @@ var AuthCodeModel = require('../models/authCode');
 var UserModel = require('../models/user');
 var configManager = require('../infrastructure/configManager')('app');
 
-var APP_ID = process.env.APP_ID || '1406370232936920';
-var APP_SECRET = process.env.APP_SECRET || 'e9bd1dd07c6d702c8c4f0bc6bdb33681';
-var FB_CALLBACK = process.env.FB_CALLBACK || 'http://api.hobout.com/auth/facebook/callback';
+var APP_ID = configManager.get('fbAppId');
+var APP_SECRET = configManager.get('fbAppSecret');
+var FB_CALLBACK = configManager.get('fbCallbackUrl');
 
 var server = oauth2orize.createServer();
 
+//
+// during auth process client object serrializing/desserializing. Implementing this methods
+//
 server.serializeClient(function(client, done){
     return done(null, client.cid);
 });
-
 server.deserializeClient(function(id, done){
     AppModel.findOne({cid: id}, function(err, client) {
         if (err) { return done(err); }
@@ -29,6 +40,11 @@ server.deserializeClient(function(id, done){
     });
 });
 
+//
+// registering grant type handlers which will be fired depending of grant type requesting
+//
+
+// handler for authorization code grant type
 server.grant(oauth2orize.grant.authorizationCode(function(client, redirectURI, user, ares, done){
 
     var code = __.randomKey(16);
@@ -44,6 +60,7 @@ server.grant(oauth2orize.grant.authorizationCode(function(client, redirectURI, u
         });
 }));
 
+// handler for token grant type
 server.grant(oauth2orize.grant.token(function(client, user, ares, done) {
 
     var token = __.randomKey(256);
@@ -57,6 +74,7 @@ server.grant(oauth2orize.grant.token(function(client, user, ares, done) {
         });
 }));
 
+//implementing exchange logic for exchanging code or credentials into token
 server.exchange(oauth2orize.exchange.code(function(client, code, redirectURI, done) {
 
     AuthCodeModel.findOne({code: code}, function(err, authCode) {
@@ -134,7 +152,11 @@ server.exchange(oauth2orize.exchange.clientCredentials(function(client, scope, d
 
 }));
 
+//
+// registering strategies which handle request depending from supporting type of request
+//
 
+// basic strategies (when username/password transfer in http header)
 passport.use(new BasicStrategy(function(username, password, done) {
     AppModel.findOne({ cid: username }, function(err, client) {
         if (err) { return done(err); }
@@ -146,6 +168,7 @@ passport.use(new BasicStrategy(function(username, password, done) {
 }
 ));
 
+//facebook oauth2 authorization strategy. handle FB authorization flow.
 passport.use(
     new FacebookStrategy({
         clientID: APP_ID,
@@ -159,7 +182,6 @@ passport.use(
                 if(err){
                     throw err;
                 }
-
                 new TokenModel({
                     token: accessToken,
                     userId: user.id,
@@ -193,6 +215,7 @@ passport.use(
     })
 );
 
+// Strategy which support bearer token authorization type
 passport.use(new BearerStrategy(
     function(token, done) {
         TokenModel.findOne({ token: token }, function (err, token) {
@@ -207,6 +230,7 @@ passport.use(new BearerStrategy(
     })
 );
 
+// Strategy which handle Client/Secret auth data, transferred in query string
 passport.use(new ClientPasswordStrategy(
     function(clientId, clientSecret, done) {
         AppModel.findOne({ cid: clientId }, function (err, client) {
@@ -218,6 +242,7 @@ passport.use(new ClientPasswordStrategy(
     }
 ));
 
+// Strategy which handle Client (without secret) auth data, transferred in query string
 passport.use(new ClientStrategy(function(clientId, clientSecret, done) {
     AppModel.findOne({ cid: clientId }, function (err, client) {
         if (err) { return done(err); }
@@ -232,6 +257,7 @@ passport.use(new ClientStrategy(function(clientId, clientSecret, done) {
 
 module.exports = passport;
 
+//creating 'barrier' abstraction for reduce auth logic code ammount
 module.exports.barrier = {
 
     'fb': passport.authenticate('facebook', { session: false, scope: 'email', display: 'popup' }),
@@ -241,6 +267,7 @@ module.exports.barrier = {
 
 }
 
+//custom handler
 module.exports.authorization = [
 
     server.authorization(function(clientID, redirectURI, done) {
@@ -258,16 +285,17 @@ module.exports.authorization = [
     function(req, res){
         var dialog_url;
         if(req.query.grant_type == 'code')
-            dialog_url = (process.env.CLIENTAPP + '/#/dialog') || 'http://local.hobout.com/#/dialog';
+            dialog_url = configManager.get('clientApp') + '/#/dialog';
         else{
-            dialog_url = (process.env.CLIENTAPP + '/#/tokendialog') || 'http://local.hobout.com/#/tokendialog';
+            dialog_url = configManager.get('clientApp') + '/#/tokendialog';
         }
         __.redirect(dialog_url, res);
     }
 
 ]
 
-function codeEchange(req, res, next){
+//custom code exchange logic which working when
+function codeExchange(req, res, next){
 
     var client = req.clientapp;
     var user = req.user;
@@ -280,7 +308,7 @@ function codeEchange(req, res, next){
             userId: user.id,
             token: __.randomKey(256)
         }).save(
-            function(err, token){;
+            function(err, token){
                 if (err) {
                     result = err
                 }else{
@@ -312,19 +340,22 @@ function codeEchange(req, res, next){
 
 }
 
+// auth middleware code for secure decision endpoint
 module.exports.decision = [
     passport.authenticate('bearer', {session: false}),
     passport.authenticate('oauth2-client', {session: false, assignProperty: 'clientapp'}),
-    codeEchange,
+    codeExchange,
     server.errorHandler()
 ];
 
+// auth middleware code for secure token endpoint
 module.exports.token = [
     passport.authenticate(['oauth2-client-password'], { session: false }),
     server.token(),
     server.errorHandler()
 ];
 
+// auth middleware code for secure decision endpoint
 module.exports.simplifiedToken = [
     passport.authenticate('oauth2-client', {session: false}),
     server.token(),

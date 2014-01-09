@@ -1,5 +1,8 @@
 function ConfigManager(config){
-    this._config = require('../../config/' + config);
+    if(config){
+
+        this._config = require('../../config/' + config);
+    }
 }
 
 ConfigManager.prototype = {
