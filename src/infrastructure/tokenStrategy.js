@@ -3,6 +3,7 @@
  * which allow not only 'Authorization: Bearer' header but also 'Authorization OAuth'
  * */
 
+
 var passport = require('passport-strategy')
     , util = require('util');
 
@@ -113,3 +114,6 @@ Strategy.prototype._challenge = function(code, desc, uri) {
  * Expose `Strategy`.
  */
 module.exports = Strategy;
+/**
+ * Created by Phoenix on 11.01.14.
+ */

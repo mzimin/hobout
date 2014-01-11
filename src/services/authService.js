@@ -1,4 +1,5 @@
 var passport = require('passport');
+
 var TokenStrategy = require('../infrastructure/tokenStrategy');
 var __ = require('../infrastructure/util');
 var TokenModel = require('../models/token');
