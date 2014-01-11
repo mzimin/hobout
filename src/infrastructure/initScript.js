@@ -45,8 +45,8 @@ module.exports = function(){
                         }
 
                         generateApp('democlient', 'http://auth.hobout.com/auth/callback', user);
-                        generateApp('apigeeImplicit', 'https://apigee.com/oauth_callback/client/oauth2ImplicitGrantCallback', user);
-                        generateApp('apigeeCode', 'https://apigee.com/oauth_callback/client/oauth2CodeCallback', user);
+                        generateApp('apigeeImplicit', 'https://apigee.com/oauth_callback/hoboutdev/oauth2ImplicitGrantCallback', user);
+                        generateApp('apigeeCode', 'https://apigee.com/oauth_callback/hoboutdev/oauth2CodeCallback', user);
 
                     });
             }
