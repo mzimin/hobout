@@ -1,12 +1,11 @@
-
 var passport = require('passport');
-var BearerStrategy = require('passport-http-bearer').Strategy;
+var TokenStrategy = require('../infrastructure/tokenStrategy').Strategy;
 var __ = require('../infrastructure/util');
 var TokenModel = require('../models/token');
 var UserModel = require('../models/user');
 
 // Strategy which support bearer token authorization type
-passport.use(new BearerStrategy(
+passport.use(new TokenStrategy(
     function(token, done) {
         TokenModel.findOne({ token: token }, function (err, token) {
             if (err) { return done(err); }
@@ -20,12 +19,11 @@ passport.use(new BearerStrategy(
     })
 );
 
-
 module.exports = passport;
 
 //creating 'barrier' abstraction for reduce auth logic code ammount
 module.exports.barrier = {
 
-    'token': passport.authenticate('bearer', {session: false})
+    'token': passport.authenticate('token', {session: false})
 
 }
