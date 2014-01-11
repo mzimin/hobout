@@ -3,12 +3,14 @@ var __ = require('../infrastructure/util');
 var restExtensions = require('./restExtensions');
 
 var AppSchema = new mongoose.Schema({
-    cid: String,
-    secret: String,
+
+    cid: { type: String, default: __.randomKey(24)},
+    secret: { type: String, default: __.randomKey(32)},
     userID: String,
     name: String,
     redirectURI: String,
-    created: Date
+    created: { type: Date,  default: Date.now }
+
 });
 
 var AppModel = mongoose.model('Application', AppSchema);
