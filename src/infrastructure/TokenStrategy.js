@@ -1,11 +1,11 @@
+/*
+ * Modification of passport-bearer startegy (https://github.com/jaredhanson/passport-http-bearer)
+ * which allow not only 'Authorization: Bearer' header but also 'Authorization OAuth'
+ * */
 
 var passport = require('passport-strategy')
     , util = require('util');
 
-/*
-* Modification of passport-bearer startegy (https://github.com/jaredhanson/passport-http-bearer)
-* which allow not only 'Authorization: Bearer' header but also 'Authorization OAuth'
-* */
 function Strategy(options, verify) {
     if (typeof options == 'function') {
         verify = options;
