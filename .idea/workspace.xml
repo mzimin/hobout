@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f89f67d-fc7f-49df-888d-23137e72e1cb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/application.js" afterPath="$PROJECT_DIR$/src/models/application.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/infrastructure/initScript.js" afterPath="$PROJECT_DIR$/src/infrastructure/initScript.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="hobout.iws" />
@@ -44,10 +44,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="application.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/application.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="26" selection-start="516" selection-end="516" vertical-scroll-proportion="0.66775244" vertical-offset="101" max-vertical-offset="408">
+            <state line="9" column="17" selection-start="316" selection-end="316" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
               <folding />
             </state>
           </provider>
@@ -89,6 +89,17 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="initScript.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/infrastructure/initScript.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="44" column="25" selection-start="1502" selection-end="1502" vertical-scroll-proportion="1.5111111" vertical-offset="0" max-vertical-offset="1989">
+              <folding>
+                <element signature="e#1164#1332#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="authService.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/services/authService.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -103,17 +114,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state line="4" column="34" selection-start="192" selection-end="192" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="configTest.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/src/infrastructure/configTest.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="42" selection-start="251" selection-end="251" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="357">
-              <folding>
-                <marker date="1389293973088" expanded="true" signature="158:427" placeholder="{...}" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -173,7 +173,6 @@
         <option value="$PROJECT_DIR$/node_modules/winston/node_modules/request/tests/test-errors.js" />
         <option value="$PROJECT_DIR$/src/infrastructure/util.js" />
         <option value="$PROJECT_DIR$/src/actions/actions.js" />
-        <option value="$PROJECT_DIR$/src/infrastructure/initScript.js" />
         <option value="$PROJECT_DIR$/config/app.js" />
         <option value="$PROJECT_DIR$/test/src/applicationTest.js" />
         <option value="$PROJECT_DIR$/test/src/infrastructure/configurationManager.js" />
@@ -185,6 +184,7 @@
         <option value="$PROJECT_DIR$/src/services/authService.js" />
         <option value="$PROJECT_DIR$/src/application.js" />
         <option value="$PROJECT_DIR$/src/models/application.js" />
+        <option value="$PROJECT_DIR$/src/infrastructure/initScript.js" />
       </list>
     </option>
   </component>
@@ -342,7 +342,7 @@
       <recent name="C:\git\hobout\Hobout.DemoApp" />
     </key>
   </component>
-  <component name="RunManager" selected="Mocha.mocha">
+  <component name="RunManager" selected="Node.js.server">
     <configuration default="false" name="oauth2 authorization approaches.should show client dialog window" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver" temporary="true">
       <setting name="configLocationType" value="TEST_METHOD" />
       <setting name="configType" value="FILE_PATH" />
@@ -511,14 +511,14 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32896653" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.50140846" sideWeight="0.4995579" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28169015" sideWeight="0.4995579" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32768363" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24933687" sideWeight="0.5708029" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2015915" sideWeight="0.54347825" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3418079" sideWeight="0.4995579" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21750663" sideWeight="0.45652175" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3361582" sideWeight="0.5004421" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.45056498" sideWeight="0.4995579" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4492958" sideWeight="0.4995579" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -827,7 +827,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="42" selection-start="251" selection-end="251" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
           <folding>
-            <marker date="1389293973088" expanded="true" signature="158:427" placeholder="{...}" />
+            <marker date="1389293973088" expanded="true" signature="-1:-1" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -881,13 +881,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/infrastructure/initScript.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="29" selection-start="1044" selection-end="1044" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1938">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/restExtensions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="153" column="40" selection-start="3645" selection-end="3645" vertical-scroll-proportion="0.0" vertical-offset="2342" max-vertical-offset="2890">
@@ -904,8 +897,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/application.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="26" selection-start="516" selection-end="516" vertical-scroll-proportion="0.66775244" vertical-offset="101" max-vertical-offset="408">
+        <state line="9" column="17" selection-start="316" selection-end="316" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/infrastructure/initScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="25" selection-start="1502" selection-end="1502" vertical-scroll-proportion="1.5111111" vertical-offset="0" max-vertical-offset="1989">
+          <folding>
+            <element signature="e#1164#1332#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

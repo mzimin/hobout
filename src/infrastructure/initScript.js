@@ -7,6 +7,27 @@ module.exports = function(){
 
     function initClientAppData(){
 
+        function generateApp(cid, redirect, user){
+            AppModel.findOne({cid: cid}, function(err, app){
+                if(err){
+                    throw err;
+                }
+                if(!app){
+                    new AppModel({
+                        cid: cid,
+                        name: cid,
+                        secret: '11111',
+                        redirectURI: redirect,
+                        userId: user.id})
+                        .save(function(err){
+                            if(err){
+                                logger.error(err);
+                            }
+                        });
+                };
+            });
+        }
+
         UserModel.findOne({email: 'hoboutdev@gmail.com'}, function(err, user){
             if(err){
                 throw err;
@@ -17,29 +38,15 @@ module.exports = function(){
                     name: 'Demo User',
                     password: '12345',
                     email:'hoboutdev@gmail.com'}).save(function(err, user){
+
                         if(err){
                             logger.error(err);
                             return;
                         }
 
-                        AppModel.findOne({name: 'hoboutClient'}, function(err, app){
-                            if(err){
-                                throw err;
-                            }
-                            if(!app){
-                                new AppModel({
-                                    cid: 'democlient',
-                                    name: 'hoboutClient',
-                                    secret: '11111',
-                                    redirectURI: configManager.get('clientApp') + '/auth/callback',
-                                    userId: user.id})
-                                    .save(function(err){
-                                        if(err){
-                                            logger.error(err);
-                                        }
-                                    });
-                            };
-                        });
+                        generateApp('democlient', 'http://auth.hobout.com/auth/callback', user);
+                        generateApp('apigeeImplicit', 'https://apigee.com/oauth_callback/client/oauth2ImplicitGrantCallback', user);
+                        generateApp('apigeeCode', 'https://apigee.com/oauth_callback/client/oauth2CodeCallback', user);
 
                     });
             }
