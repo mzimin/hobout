@@ -9,7 +9,7 @@ var AppSchema = new mongoose.Schema({
     userID: String,
     name: String,
     redirectURI: String,
-    created: { type: Date,  default: Date.now }
+    created: { type: Date, default: Date.now }
 
 });
 
