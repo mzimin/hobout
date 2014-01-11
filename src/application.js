@@ -6,23 +6,6 @@ var AuthService = require('../src/services/authService');
 var __ = require('../src/infrastructure/util');
 var configManager = require('../src/infrastructure/configManager')('app');
 
-// oauth2orize require session support, but restify do not support sessions,
-// so sessionStub adding session stub for simplify integration
-
-var sessionStub = function(){
-
-    function setSession(req, res, next) {
-
-        var session = {authorize: {0:{}}};
-        req._session = req.session = session;
-        return (next());
-
-    }
-
-    return setSession;
-
-}
-
 function Application(port){
 
     this.server = restify.createServer();
@@ -45,7 +28,6 @@ function Application(port){
 
     this.server.use(restify.queryParser());
     this.server.use(restify.bodyParser());
-    this.server.use(sessionStub());
 
     this.port = port || configManager.get('port');
 

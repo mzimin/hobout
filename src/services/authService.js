@@ -5,10 +5,6 @@ var __ = require('../infrastructure/util');
 var TokenModel = require('../models/token');
 var UserModel = require('../models/user');
 
-
-var server = oauth2orize.createServer();
-
-
 // Strategy which support bearer token authorization type
 passport.use(new BearerStrategy(
     function(token, done) {
