@@ -6,7 +6,12 @@ module.exports = {
 
     randomKey: function(length){
 
-        return crypto.randomBytes(length).toString('base64');
+        var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var result = [];
+        for (var i = length; i > 0; --i) {
+            result.push(chars[Math.round(Math.random() * (chars.length - 1))]);
+        }
+        return result.join('');
 
     },
 

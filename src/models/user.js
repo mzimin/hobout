@@ -10,7 +10,6 @@ var UserSchema = new mongoose.Schema({
     login: String,
     _password: String,
     salt: String,
-    token: String,
     refreshToken: String,
     created: {
         type: Date,
