@@ -28,7 +28,13 @@ function Application(port){
 
     this.server.use(restify.queryParser());
     this.server.use(restify.bodyParser());
-
+    this.server.use(function(req, res, next){
+        if(req.body){
+            console.log('---------------request body ------------------');
+            console.log(req.body);
+        }
+        next();
+    });
     this.port = port || configManager.get('port');
 
     process.on('SIGINT', function() {
