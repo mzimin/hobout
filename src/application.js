@@ -91,7 +91,13 @@ Application.prototype = {
             });
         }
         initscript();
-        return this.server.listen(this.port);
+        var self = this;
+        return this.server.listen(this.port, function(err){
+            if(err){
+                throw err;
+            }
+            console.log('Application succesfully starts on port: ' + self.port);
+        });
 
     },
 
@@ -136,7 +142,5 @@ Application.prototype = {
 };
 
 module.exports = Application;
-
-
 
 

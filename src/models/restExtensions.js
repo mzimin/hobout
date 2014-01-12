@@ -32,47 +32,57 @@ module.exports = {
 
     post: function(req, res, next){
 
-        var model = this;
-
-        new model(req.body)
-            .save(function(err, elem){
-                if(err){
-                    throw err;
-                }
-                res.send({status: 'success'});
-                return next();
-            })
+        var newModel = req.body;
+        if(__.isObject(newModel)){
+            var model = this;
+            new model(req.body)
+                .save(function(err, elem){
+                    if(err){
+                        throw err;
+                    }
+                    res.send({status: 'success'});
+                    return next();
+                });
+        }
+        else{
+            return next(new Error("Incorrect post data provided."));
+        }
 
     },
 
     put: function(req, res, next){
         var model = this;
-        model.findById(req.query.id, function(err, elem){
 
-            if(err){
-                throw err;
-            }
+        var newModel = req.body;
+        if(__.isObject(newModel)){
+            model.findById(req.query.id, function(err, elem){
 
-            if(!elem){
-                throw new Error("Element not found");
-            }
-
-            for(var key in req.body){
-                if(elem[key] !== req.body[key]){
-                    elem[key] = req.body[key];
-                }
-            }
-
-            elem.save(function(err, elem){
                 if(err){
-                    throw err;
+                    return next(err);
                 }
-                res.send({status: 'success'});
-                return next();
-            })
 
+                if(!elem){
+                    return next(new Error("Element not found"));
+                }
 
-        })
+                for(var key in req.body){
+                    if(elem[key] !== req.body[key]){
+                        elem[key] = req.body[key];
+                    }
+                }
+
+                elem.save(function(err, elem){
+                    if(err){
+                        return next(err);
+                    }
+                    res.send({status: 'success', data: elem});
+                    return next();
+                })
+
+            });
+        }else{
+            return next(new Error("Incorrect put data provided."));
+        }
 
     },
 
@@ -81,16 +91,16 @@ module.exports = {
         var model = this;
         model.findById(req.query.id, function(err, elem){
             if(err){
-                throw err;
+                return next(err);
             }
 
             if(!elem){
-                throw new Error('Element not found');
+                return next(new Error('Element not found'));
             }
 
             elem.remove(function(err){
                 if(err){
-                    throw err;
+                    return next(err);
                 }
 
                 res.send({status: 'success'});
@@ -110,16 +120,16 @@ module.exports = {
         var commands = [];
 
         for(var key in req.query){
-           if(key != '__proto__' && keyCommands.indexOf(key) === -1){
-               filters.push({key: key, val: req.query[key]});
-           }
+            if(key != '__proto__' && keyCommands.indexOf(key) === -1){
+                filters.push({key: key, val: req.query[key]});
+            }
         }
 
         var query;
 
         if('q' in req.query){
 
-            throw new Error("Currently full text search not implemented");
+            return next(new Error("Currently full text search not implemented"));
 
         }else{
 

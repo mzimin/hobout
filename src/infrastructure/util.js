@@ -26,19 +26,9 @@ module.exports = {
 
     },
 
-    renderDialog: function(client, res){
+    isObject: function(elem){
 
-        fs.readFile(__dirname + '../../../views/oauthdialog.html', 'utf8', function(err, html){
-            html = html.replace("##client.name##", client.name);
-            module.exports.render(res, html);
-        });
-
-    },
-
-    redirect: function(url, res, prefix){
-
-        res.header('Location', url);
-        res.send(302);
+        return (typeof elem == 'object');
 
     },
 
