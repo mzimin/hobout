@@ -13,7 +13,6 @@ application.registerModel(UserModel);
 
 application.run();
 
-console.log('test console log');
 
 
 
